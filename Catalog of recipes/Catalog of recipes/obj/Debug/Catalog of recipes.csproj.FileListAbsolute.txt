@@ -1,0 +1,147 @@
+C:\Users\ivang\Desktop\C#\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe.config
+C:\Users\ivang\Desktop\C#\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csprojResolveAssemblyReference.cache
+C:\Users\ivang\Desktop\C#\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.g.cs
+C:\Users\ivang\Desktop\C#\Catalog of recipes\Catalog of recipes\obj\Debug\App.g.cs
+C:\Users\ivang\Desktop\C#\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.cache
+C:\Users\ivang\Desktop\C#\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.lref
+C:\Users\ivang\Desktop\C#\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe
+C:\Users\ivang\Desktop\C#\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Desktop\C#\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.baml
+C:\Users\ivang\Desktop\C#\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.g.resources
+C:\Users\ivang\Desktop\C#\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog_of_recipes.Properties.Resources.resources
+C:\Users\ivang\Desktop\C#\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csproj.GenerateResource.Cache
+C:\Users\ivang\Desktop\C#\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.exe
+C:\Users\ivang\Desktop\C#\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Desktop\курсач\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe.config
+C:\Users\ivang\Desktop\курсач\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.exe
+C:\Users\ivang\Desktop\курсач\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Desktop\курсач\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe
+C:\Users\ivang\Desktop\курсач\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Desktop\курсач\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csprojResolveAssemblyReference.cache
+C:\Users\ivang\Desktop\курсач\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.g.cs
+C:\Users\ivang\Desktop\курсач\Catalog of recipes\Catalog of recipes\obj\Debug\App.g.cs
+C:\Users\ivang\Desktop\курсач\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.cache
+C:\Users\ivang\Desktop\курсач\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.lref
+C:\Users\ivang\Desktop\курсач\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.baml
+C:\Users\ivang\Desktop\курсач\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.g.resources
+C:\Users\ivang\Desktop\курсач\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog_of_recipes.Properties.Resources.resources
+C:\Users\ivang\Desktop\курсач\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csproj.GenerateResource.Cache
+C:\Users\student-iiikt\Downloads\ъєЁёрў\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.g.cs
+C:\Users\student-iiikt\Downloads\ъєЁёрў\Catalog of recipes\Catalog of recipes\obj\Debug\App.g.cs
+C:\Users\student-iiikt\Downloads\ъєЁёрў\Catalog of recipes\Catalog of recipes\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\student-iiikt\Downloads\ъєЁёрў\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.cache
+C:\Users\student-iiikt\Downloads\ъєЁёрў\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.lref
+C:\Users\student-iiikt\Downloads\ъєЁёрў\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.exe
+C:\Users\student-iiikt\Downloads\ъєЁёрў\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.pdb
+C:\Users\student-iiikt\Downloads\ъєЁёрў\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe.config
+C:\Users\student-iiikt\Downloads\ъєЁёрў\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe
+C:\Users\student-iiikt\Downloads\ъєЁёрў\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.pdb
+C:\Users\student-iiikt\Downloads\ъєЁёрў\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.baml
+C:\Users\student-iiikt\Downloads\ъєЁёрў\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.g.resources
+C:\Users\student-iiikt\Downloads\ъєЁёрў\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog_of_recipes.Properties.Resources.resources
+C:\Users\student-iiikt\Downloads\ъєЁёрў\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csproj.GenerateResource.Cache
+C:\Users\student-iiikt\Downloads\ъєЁёрў\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csprojResolveAssemblyReference.cache
+C:\Users\ivang\Google Диск\curs\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe.config
+C:\Users\ivang\Google Диск\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.exe
+C:\Users\ivang\Google Диск\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Google Диск\curs\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe
+C:\Users\ivang\Google Диск\curs\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Google Диск\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csprojResolveAssemblyReference.cache
+C:\Users\ivang\Google Диск\curs\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.g.cs
+C:\Users\ivang\Google Диск\curs\Catalog of recipes\Catalog of recipes\obj\Debug\App.g.cs
+C:\Users\ivang\Google Диск\curs\Catalog of recipes\Catalog of recipes\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ivang\Google Диск\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.cache
+C:\Users\ivang\Google Диск\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.lref
+C:\Users\ivang\Google Диск\curs\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.baml
+C:\Users\ivang\Google Диск\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.g.resources
+C:\Users\ivang\Google Диск\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog_of_recipes.Properties.Resources.resources
+C:\Users\ivang\Google Диск\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csproj.GenerateResource.Cache
+C:\Users\ivang\Desktop\curs\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe.config
+C:\Users\ivang\Desktop\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.exe
+C:\Users\ivang\Desktop\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Desktop\curs\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe
+C:\Users\ivang\Desktop\curs\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Desktop\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csprojResolveAssemblyReference.cache
+C:\Users\ivang\Desktop\curs\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.g.cs
+C:\Users\ivang\Desktop\curs\Catalog of recipes\Catalog of recipes\obj\Debug\App.g.cs
+C:\Users\ivang\Desktop\curs\Catalog of recipes\Catalog of recipes\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ivang\Desktop\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.cache
+C:\Users\ivang\Desktop\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.lref
+C:\Users\ivang\Desktop\curs\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.baml
+C:\Users\ivang\Desktop\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.g.resources
+C:\Users\ivang\Desktop\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog_of_recipes.Properties.Resources.resources
+C:\Users\ivang\Desktop\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csproj.GenerateResource.Cache
+C:\Users\ivang\Desktop\WORK\курсач\curs\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe.config
+C:\Users\ivang\Desktop\WORK\курсач\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.exe
+C:\Users\ivang\Desktop\WORK\курсач\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Desktop\WORK\курсач\curs\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe
+C:\Users\ivang\Desktop\WORK\курсач\curs\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Desktop\WORK\курсач\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csprojResolveAssemblyReference.cache
+C:\Users\ivang\Desktop\WORK\курсач\curs\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.g.cs
+C:\Users\ivang\Desktop\WORK\курсач\curs\Catalog of recipes\Catalog of recipes\obj\Debug\App.g.cs
+C:\Users\ivang\Desktop\WORK\курсач\curs\Catalog of recipes\Catalog of recipes\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ivang\Desktop\WORK\курсач\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.cache
+C:\Users\ivang\Desktop\WORK\курсач\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.lref
+C:\Users\ivang\Desktop\WORK\курсач\curs\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.baml
+C:\Users\ivang\Desktop\WORK\курсач\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.g.resources
+C:\Users\ivang\Desktop\WORK\курсач\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog_of_recipes.Properties.Resources.resources
+C:\Users\ivang\Desktop\WORK\курсач\curs\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csproj.GenerateResource.Cache
+C:\Users\student-iiikt\Desktop\123\8.12.16\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe.config
+C:\Users\student-iiikt\Desktop\123\8.12.16\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe
+C:\Users\student-iiikt\Desktop\123\8.12.16\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.pdb
+C:\Users\student-iiikt\Desktop\123\8.12.16\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.g.cs
+C:\Users\student-iiikt\Desktop\123\8.12.16\Catalog of recipes\Catalog of recipes\obj\Debug\App.g.cs
+C:\Users\student-iiikt\Desktop\123\8.12.16\Catalog of recipes\Catalog of recipes\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\student-iiikt\Desktop\123\8.12.16\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.cache
+C:\Users\student-iiikt\Desktop\123\8.12.16\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.lref
+C:\Users\student-iiikt\Desktop\123\8.12.16\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.baml
+C:\Users\student-iiikt\Desktop\123\8.12.16\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.g.resources
+C:\Users\student-iiikt\Desktop\123\8.12.16\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog_of_recipes.Properties.Resources.resources
+C:\Users\student-iiikt\Desktop\123\8.12.16\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csproj.GenerateResource.Cache
+C:\Users\student-iiikt\Desktop\123\8.12.16\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.exe
+C:\Users\student-iiikt\Desktop\123\8.12.16\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.pdb
+C:\Users\student-iiikt\Desktop\123\8.12.16\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csprojResolveAssemblyReference.cache
+C:\Users\ivang\Desktop\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe.config
+C:\Users\ivang\Desktop\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe
+C:\Users\ivang\Desktop\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Desktop\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.g.cs
+C:\Users\ivang\Desktop\Catalog of recipes\Catalog of recipes\obj\Debug\App.g.cs
+C:\Users\ivang\Desktop\Catalog of recipes\Catalog of recipes\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ivang\Desktop\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.cache
+C:\Users\ivang\Desktop\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.lref
+C:\Users\ivang\Desktop\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.baml
+C:\Users\ivang\Desktop\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.g.resources
+C:\Users\ivang\Desktop\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog_of_recipes.Properties.Resources.resources
+C:\Users\ivang\Desktop\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csproj.GenerateResource.Cache
+C:\Users\ivang\Desktop\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.exe
+C:\Users\ivang\Desktop\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Desktop\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csprojResolveAssemblyReference.cache
+C:\Users\student-iiikt\Desktop\1.3\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe.config
+C:\Users\student-iiikt\Desktop\1.3\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe
+C:\Users\student-iiikt\Desktop\1.3\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.pdb
+C:\Users\student-iiikt\Desktop\1.3\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.g.cs
+C:\Users\student-iiikt\Desktop\1.3\Catalog of recipes\Catalog of recipes\obj\Debug\App.g.cs
+C:\Users\student-iiikt\Desktop\1.3\Catalog of recipes\Catalog of recipes\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\student-iiikt\Desktop\1.3\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.cache
+C:\Users\student-iiikt\Desktop\1.3\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.lref
+C:\Users\student-iiikt\Desktop\1.3\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.baml
+C:\Users\student-iiikt\Desktop\1.3\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.g.resources
+C:\Users\student-iiikt\Desktop\1.3\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog_of_recipes.Properties.Resources.resources
+C:\Users\student-iiikt\Desktop\1.3\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csproj.GenerateResource.Cache
+C:\Users\student-iiikt\Desktop\1.3\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.exe
+C:\Users\student-iiikt\Desktop\1.3\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe.config
+C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.exe
+C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe
+C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csprojResolveAssemblyReference.cache
+C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.g.cs
+C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\obj\Debug\App.g.cs
+C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.cache
+C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.lref
+C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.baml
+C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.g.resources
+C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog_of_recipes.Properties.Resources.resources
+C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csproj.GenerateResource.Cache

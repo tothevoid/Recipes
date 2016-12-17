@@ -1,0 +1,99 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
+using Microsoft.Win32;
+
+namespace Catalog_of_recipes
+{
+    internal class AddRecipeView:ViewModelBase
+    {
+        public AddRecipeView()
+        {
+            Time = new List<string>() { "Праздничное", "Завтрак", "Обед", "Ужин" };
+            Ingredients = new Data_manage().Load_ingr();
+            Search = Ingredients.Select(x => x.Name).ToList();
+            Using_ingrs = new ObservableCollection<Ingredient>() {};
+            Summary = "0: 0: 0: 0";
+            Weight = "100";
+        }
+
+        private readonly List<Ingredient> Ingredients;   
+        private string _name, _description;
+        private List<string> _search;
+        private int _searchselect;
+        private string _summary;
+        private string _weight;
+        private string _selectedTime;
+
+        public string Selected_time { get { return _selectedTime; } set { Set(ref _selectedTime, value); } }
+        public string Weight { get { return _weight; } set {Set(ref _weight,value); } }
+        public string Summary {get { return _summary; } set {Set(ref _summary,value);} }
+        public List<string> Time { get; set; }
+        public ObservableCollection<Ingredient> Using_ingrs { get; set; }
+       
+        public int SearchSelect { get { return _searchselect; } set { Set(ref _searchselect,value);} }
+        public List<string> Search { get { return _search; } set {Set(ref _search,value);} }
+        public string Name { get { return _name; } set { Set(ref _name, value); } }
+        public string Description { get { return _description; } set { Set(ref _description, value); } }
+
+        public ICommand Add_Ingr
+        {
+            get { return new CommandBase(Add); }
+        }
+
+        private void Add(object parameter)
+        {
+            var temp = Ingredients[SearchSelect];
+            var dif = Convert.ToDouble(Weight)/temp.Weight;
+            var temp2 = new Ingredient(temp.Name, temp.Pr*dif,temp.Ch*dif,temp.Fat*dif,temp.Cl*dif,Convert.ToDouble(Weight));
+            Using_ingrs.Add(temp2);
+            CountSummary();
+        }
+
+        private void CountSummary()
+        {
+            Item temp = new Item(null, 0, 0, 0, 0);
+            foreach (var x in Using_ingrs)
+            {
+                temp.Ch += x.Ch;
+                temp.Fat += x.Fat;
+                temp.Cl += x.Cl;
+                temp.Pr += x.Pr;
+            }
+            Summary = String.Format("{0} : {1} : {2} : {3}", temp.Pr, temp.Ch, temp.Fat, temp.Cl);
+
+        }
+
+        public ICommand Add_rec
+        {
+            get { return new CommandBase(Add_recipe); }
+        }
+
+        private void Add_recipe(object parameter)
+        {
+            Item a;
+            var vm = new ShowRecipesVm();
+            List<double> props = Summary.Split(':').Select(x => double.Parse(x)).ToList();
+            Recipes.Add(new Item(Name, props[0], props[1], props[2], props[3]));
+            //ShowRecipesVm.Recipes.Add(a);
+            ShowRecipesVm.Recipes.Add(new Item("ss",2,2,2,2));
+            //if (Description == null)
+            //    Description = "Отсутствует";
+            //if (Name != null && Using_ingrs.Count != 0 && Selected_time != null)
+            //{
+
+            //}   
+        }
+
+
+    }
+
+}
