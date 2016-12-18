@@ -8,27 +8,6 @@
         Title="Recipes" Height="619.161" Width="595.43" WindowStartupLocation="CenterScreen">
     <Grid>
         <TabControl >
-            <TabItem Header="Подробнее">
-                <TabItem.DataContext>
-                    <local:ShowRecipesVm/>
-                </TabItem.DataContext>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="250"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="{Binding Image}"/>
-                        <Button Content="Добавить..." Command="{Binding AddImage}"/>
-                    </StackPanel>
-                    <TextBlock Grid.Column="2"  FontSize="50"/>
-                    <TextBlock Grid.Row="1" Grid.ColumnSpan="2"/>
-                </Grid>
-            </TabItem>
             <TabItem Header="Рецепты" x:Name="tab2">
                 <TabItem.DataContext>
                     <local:ShowRecipesVm/>
@@ -54,6 +33,23 @@
                             <DataGridTextColumn Header="Калории" Binding="{Binding Cl}"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Подробнее" Visibility="{Binding Show}">
+                <TabItem.DataContext>
+                    <local:DetailsVM/>
+                </TabItem.DataContext>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="2"  FontSize="50"/>
+                    <TextBlock Grid.Row="1" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tab" Header="Добавление рецепта" >

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Catalog_of_recipes
@@ -15,8 +16,10 @@ namespace Catalog_of_recipes
             Recipes = new ObservableCollection<Item>(new Data_manage().Load_rec());
             Temp = new Data_manage().Load_rec();
             Items = new List<string> { "Название", "Калории", "Белки", "Жиры", "Углеводы" };
+            // NEED TO FIX
             SearchQuery = "a";
             SearchQuery = "";
+            // THIS
         }
         #endregion
 
@@ -101,6 +104,7 @@ namespace Catalog_of_recipes
             foreach (var i in Selected)
                 Recipes.Remove(i);
             Temp = Temp.Except(Selected).ToList();
+        
         }
         #endregion
 

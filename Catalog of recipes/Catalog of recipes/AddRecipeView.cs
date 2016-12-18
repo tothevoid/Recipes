@@ -8,6 +8,7 @@ namespace Catalog_of_recipes
 {
     internal class AddRecipeView:ViewModelBase
     {
+        #region Constructor
         public AddRecipeView()
         {
             Time = new List<string>() { "Праздничное", "Завтрак", "Обед", "Ужин" };
@@ -17,7 +18,9 @@ namespace Catalog_of_recipes
             Summary = "0: 0: 0: 0";
             Weight = "100";
         }
+        #endregion
 
+        #region Fields
         private readonly List<Ingredient> Ingredients;   
         private string _name, _description;
         private List<string> _search;
@@ -25,25 +28,35 @@ namespace Catalog_of_recipes
         private string _summary;
         private string _weight;
         private int _selectedTime;
-       
+        #endregion
 
-      
+        #region Properties
         public int SelectedTime { get { return _selectedTime; } set { Set(ref _selectedTime, value); } }
         public string Weight { get { return _weight; } set {Set(ref _weight,value); } }
         public string Summary {get { return _summary; } set {Set(ref _summary,value);} }
         public List<string> Time { get; set; }
         public ObservableCollection<Ingredient> Using_ingrs { get; set; }
-       
         public int SearchSelect { get { return _searchselect; } set { Set(ref _searchselect,value);} }
         public List<string> Search { get { return _search; } set {Set(ref _search,value);} }
         public string Name { get { return _name; } set { Set(ref _name, value); } }
         public string Description { get { return _description; } set { Set(ref _description, value); } }
+        #endregion
 
-        public ICommand Add_Ingr
+        #region Methods
+        private void Add_recipe(object parameter)
         {
-            get { return new CommandBase(Add); }
-        }
+            List<double> props = Summary.Split(':').Select(x => double.Parse(x)).ToList();
+            if (Temp.Count == Recipes.Count || Recipes.Count == 0)
+                Recipes.Add(new Item(Name, props[0], props[1], props[2], props[3]));
+            Temp.Add(new Item(Name, props[0], props[1], props[2], props[3]));
+            //if (Description == null)
+            //    Description = "Отсутствует";
+            //if (Name != null && Using_ingrs.Count != 0 && SelectedTime != null)
+            //{
 
+            //}   
+        }
+       
         private void Add(object parameter)
         {
             var temp = Ingredients[SearchSelect];
@@ -52,8 +65,6 @@ namespace Catalog_of_recipes
             Using_ingrs.Add(temp2);
             CountSummary();
         }
-
-       
 
         private void CountSummary()
         {
@@ -66,29 +77,20 @@ namespace Catalog_of_recipes
                 temp.Pr += x.Pr;
             }
             Summary = String.Format("{0} : {1} : {2} : {3}", temp.Pr, temp.Ch, temp.Fat, temp.Cl);
+        }
+        #endregion
 
+        #region Command
+        public ICommand Add_Ingr
+        {
+            get { return new CommandBase(Add); }
         }
 
         public ICommand Add_rec
         {
             get { return new CommandBase(Add_recipe); }
         }
-
-        private void Add_recipe(object parameter)
-        {
-            List<double> props = Summary.Split(':').Select(x => double.Parse(x)).ToList();
-            if (Temp.Count==Recipes.Count || Recipes.Count==0)
-            Recipes.Add(new Item(Name, props[0], props[1], props[2], props[3]));
-            Temp.Add(new Item(Name, props[0], props[1], props[2], props[3]));
-            //if (Description == null)
-            //    Description = "Отсутствует";
-            //if (Name != null && Using_ingrs.Count != 0 && SelectedTime != null)
-            //{
-
-            //}   
-        }
-
-
+        #endregion
     }
 
 }
