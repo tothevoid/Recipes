@@ -89,7 +89,7 @@
                         <Label Content="НАЗВАНИЕ РЕЦЕПТА" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" />
                         <TextBox Text="{Binding Name}" Width="271" Margin="10,0,0,0" />
                         <Label  Content="Время подачи" />
-                        <ComboBox ItemsSource="{Binding Time}" SelectedItem="{Binding Selected_time}" IsTextSearchEnabled="False" Height="30" Margin="10,0,19,0"  />
+                        <ComboBox ItemsSource="{Binding Time}" SelectedItem="{Binding SelectedTime}" IsTextSearchEnabled="False" Height="30" Margin="10,0,19,0"  />
                         <Label  Content="Добавить ингредиент"/>
                         <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
                             <ComboBox x:Name="cb" Height="26" ItemsSource="{Binding Search}" IsEditable="True" Width="244" IsTextSearchEnabled="True" SelectedIndex="{Binding SearchSelect}"/>

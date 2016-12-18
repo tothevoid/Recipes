@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
-using System.Windows.Media.Media3D;
-using Microsoft.Win32;
 
 namespace Catalog_of_recipes
 {
@@ -33,7 +26,7 @@ namespace Catalog_of_recipes
         private string _weight;
         private string _selectedTime;
 
-        public string Selected_time { get { return _selectedTime; } set { Set(ref _selectedTime, value); } }
+        public string SelectedTime { get { return _selectedTime; } set { Set(ref _selectedTime, value); } }
         public string Weight { get { return _weight; } set {Set(ref _weight,value); } }
         public string Summary {get { return _summary; } set {Set(ref _summary,value);} }
         public List<string> Time { get; set; }
@@ -80,11 +73,12 @@ namespace Catalog_of_recipes
         private void Add_recipe(object parameter)
         {
             List<double> props = Summary.Split(':').Select(x => double.Parse(x)).ToList();
+            if (Temp.Count==Recipes.Count)
             Recipes.Add(new Item(Name, props[0], props[1], props[2], props[3]));
             Temp.Add(new Item(Name, props[0], props[1], props[2], props[3]));
             //if (Description == null)
             //    Description = "Отсутствует";
-            //if (Name != null && Using_ingrs.Count != 0 && Selected_time != null)
+            //if (Name != null && Using_ingrs.Count != 0 && SelectedTime != null)
             //{
 
             //}   
