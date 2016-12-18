@@ -27,11 +27,11 @@ namespace Catalog_of_recipes
         private int _searchselect;
         private string _summary;
         private string _weight;
-        private int _selectedTime;
+        private string _selectedTime;
         #endregion
 
         #region Properties
-        public int SelectedTime { get { return _selectedTime; } set { Set(ref _selectedTime, value); } }
+        public string SelectedTime { get { return _selectedTime; } set { Set(ref _selectedTime, value); } }
         public string Weight { get { return _weight; } set {Set(ref _weight,value); } }
         public string Summary {get { return _summary; } set {Set(ref _summary,value);} }
         public List<string> Time { get; set; }

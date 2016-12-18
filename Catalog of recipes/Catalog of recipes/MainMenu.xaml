@@ -22,17 +22,20 @@
                             <TextBox  HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Text="{Binding SearchQuery,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                             <ComboBox  SelectedIndex="{Binding Index}" Width="222" ItemsSource="{Binding Items}" />
                             <Button Content="Удалить" Command="{Binding DeleteRecipes}" CommandParameter="{Binding ElementName=Search_table, Path=SelectedItems}"  Width="70" />
+                            <Button Click="check" Width="40"/>
                         </StackPanel>
                     </StackPanel>
-                    <DataGrid x:Name="Search_table" AutoGenerateColumns="False" Grid.Row="1"  ItemsSource="{Binding Recipes}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
-                            <DataGridTextColumn Header="Белки" Binding="{Binding Pr}"/>
-                            <DataGridTextColumn Header="Углеводы" Binding="{Binding Ch}"/>
-                            <DataGridTextColumn Header="Жиры" Binding="{Binding Fat}"/>
-                            <DataGridTextColumn Header="Калории" Binding="{Binding Cl}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                    <StackPanel Grid.Row="1">
+                        <DataGrid x:Name="Search_table" AutoGenerateColumns="False" ItemsSource="{Binding Recipes}"  >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                                <DataGridTextColumn Header="Белки" Binding="{Binding Pr}"/>
+                                <DataGridTextColumn Header="Углеводы" Binding="{Binding Ch}"/>
+                                <DataGridTextColumn Header="Жиры" Binding="{Binding Fat}"/>
+                                <DataGridTextColumn Header="Калории" Binding="{Binding Cl}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem Header="Подробнее" Visibility="{Binding Show}">
@@ -41,15 +44,36 @@
                 </TabItem.DataContext>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition />
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="140"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition />
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="2"  FontSize="50"/>
-                    <TextBlock Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <StackPanel>
+                        <Label Content="Название: "/>
+                        <TextBlock Text="123"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.RowSpan="2">
+                        <Label Content="Белки/Жиры/Углеводы/Калории" HorizontalAlignment="Center"/>
+                        <TextBlock Height="48" HorizontalAlignment="Center"><Run/><LineBreak/><Run Text="100 ; 200 ; 300 ; 400"/></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1">
+                        <Label Content="Время: "/>
+                        <TextBlock Text="Обед"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
+                        <Label Content="Ингредиенты: "/>
+                        <TextBlock Text="Что-то"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3" Grid.ColumnSpan="2">
+                        <Label Content="Описание"/>
+                        <TextBlock Text="Smth"/>
+                    </StackPanel>
+
                 </Grid>
             </TabItem>
             <TabItem x:Name="tab" Header="Добавление рецепта" >
@@ -88,7 +112,7 @@
                         <ComboBox ItemsSource="{Binding Time}" SelectedItem="{Binding SelectedTime}" IsTextSearchEnabled="False" Height="30" Margin="10,0,19,0"  />
                         <Label  Content="Добавить ингредиент"/>
                         <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
-                            <ComboBox x:Name="cb" Height="26" ItemsSource="{Binding Search}" IsEditable="True" Width="244" IsTextSearchEnabled="True" SelectedIndex="{Binding SearchSelect}"/>
+                            <ComboBox Height="26" ItemsSource="{Binding Search}" IsEditable="True" Width="244" IsTextSearchEnabled="True" SelectedIndex="{Binding SearchSelect}"/>
                             <Button Content="OK" Command="{Binding Add_Ingr}" Width="26" />
                         </StackPanel>
                         <Label Content="Масса" />
