@@ -14,11 +14,6 @@ namespace Catalog_of_recipes
             this.action = action;
         }
 
-        public CommandBase(Action action)
-        {
-            this._action = action;
-        }
-
         public bool CanExecute(object parameter)
         {
             return true;

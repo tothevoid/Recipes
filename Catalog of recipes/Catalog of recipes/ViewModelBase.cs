@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -10,6 +11,7 @@ namespace Catalog_of_recipes
 
         public static ObservableCollection<Item> Recipes { get; set; }
         protected static ObservableCollection<Item> Temp { get; set; }
+      
 
         protected void Fire([CallerMemberName] string propName = null)
         {

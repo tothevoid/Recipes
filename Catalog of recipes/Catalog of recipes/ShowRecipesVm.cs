@@ -44,10 +44,9 @@ namespace Catalog_of_recipes
                 else
                 {
                    Recipes.Clear();
-                    foreach (var i in Temp)
-                    {
+                   foreach (var i in Temp)
                         Recipes.Add(i);
-                    }
+                    
                 }
             }
         }
@@ -94,15 +93,15 @@ namespace Catalog_of_recipes
             
         }
 
-        private void Change(object parameter)
+        private void Remove(object parameter)
         {
             IList list = parameter as IList;
             List<Item> Selected = list.Cast<Item>().ToList();
             Temp = new ObservableCollection<Item>(Temp.Except(Selected));
             foreach (var i in Selected)
-            {
                 Recipes.Remove(i);
-            }
+            
+            
         }
         #endregion
 
@@ -110,7 +109,7 @@ namespace Catalog_of_recipes
 
         public ICommand DeleteRecipes
         {
-            get { return new CommandBase(Change); }
+            get { return new CommandBase(Remove); }
         }
 
         #endregion

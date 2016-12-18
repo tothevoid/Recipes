@@ -44,7 +44,6 @@ namespace Catalog_of_recipes
         public List<Ingredient> Load_ingr()
         {
             var temp = File.ReadAllLines("Ingredients.txt");
-            //List<Item>Ingredients = temp.Select(x => x.Split('\t')).Select(x => new Item(x[0], Convert.ToDouble(x[1]), Convert.ToDouble(x[2]), Convert.ToDouble(x[3]), Convert.ToDouble(x[4]))).ToList();
             List<Ingredient> Ingredients = temp.Select(x => x.Split('\t')).Select(x => new Ingredient(x[0], Convert.ToDouble(x[1]), Convert.ToDouble(x[2]), Convert.ToDouble(x[3]), Convert.ToDouble(x[4]), Convert.ToDouble(x[5]))).ToList();
             return Ingredients;
         }

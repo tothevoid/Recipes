@@ -73,7 +73,7 @@ namespace Catalog_of_recipes
         private void Add_recipe(object parameter)
         {
             List<double> props = Summary.Split(':').Select(x => double.Parse(x)).ToList();
-            if (Temp.Count==Recipes.Count)
+            if (Temp.Count==Recipes.Count || Recipes.Count==0)
             Recipes.Add(new Item(Name, props[0], props[1], props[2], props[3]));
             Temp.Add(new Item(Name, props[0], props[1], props[2], props[3]));
             //if (Description == null)
