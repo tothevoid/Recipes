@@ -13,9 +13,10 @@ namespace Catalog_of_recipes
         public ShowRecipesVm()
         {
             Recipes = new ObservableCollection<Item>(new Data_manage().Load_rec());
-            Temp = new ObservableCollection<Item>(new Data_manage().Load_rec());
+            Temp = new Data_manage().Load_rec();
             Items = new List<string> { "Название", "Калории", "Белки", "Жиры", "Углеводы" };
-           
+            SearchQuery = "a";
+            SearchQuery = "";
         }
         #endregion
 
@@ -85,7 +86,7 @@ namespace Catalog_of_recipes
                 return;
             }
             Recipes.Clear();
-            var temp = (Temp.Where(x => MyComparer(x, SearchQuery.ToLower(), isNum)));
+            var temp = Temp.Where(x => MyComparer(x, SearchQuery.ToLower(), isNum));
             foreach (var i in temp)
             {
                 Recipes.Add(i);
@@ -93,15 +94,13 @@ namespace Catalog_of_recipes
             
         }
 
-        private void Remove(object parameter)
+        private void Remove(object parameter) // FIX (TEMP IS CHANGABLE AFTER SEARCH)
         {
             IList list = parameter as IList;
             List<Item> Selected = list.Cast<Item>().ToList();
-            Temp = new ObservableCollection<Item>(Temp.Except(Selected));
             foreach (var i in Selected)
                 Recipes.Remove(i);
-            
-            
+            Temp = Temp.Except(Selected).ToList();
         }
         #endregion
 

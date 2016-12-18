@@ -10,7 +10,7 @@ namespace Catalog_of_recipes
         public event PropertyChangedEventHandler PropertyChanged;
 
         public static ObservableCollection<Item> Recipes { get; set; }
-        protected static ObservableCollection<Item> Temp { get; set; }
+        protected static List<Item> Temp { get; set; }
       
 
         protected void Fire([CallerMemberName] string propName = null)

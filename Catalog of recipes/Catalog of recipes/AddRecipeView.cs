@@ -24,9 +24,11 @@ namespace Catalog_of_recipes
         private int _searchselect;
         private string _summary;
         private string _weight;
-        private string _selectedTime;
+        private int _selectedTime;
+       
 
-        public string SelectedTime { get { return _selectedTime; } set { Set(ref _selectedTime, value); } }
+      
+        public int SelectedTime { get { return _selectedTime; } set { Set(ref _selectedTime, value); } }
         public string Weight { get { return _weight; } set {Set(ref _weight,value); } }
         public string Summary {get { return _summary; } set {Set(ref _summary,value);} }
         public List<string> Time { get; set; }
@@ -50,6 +52,8 @@ namespace Catalog_of_recipes
             Using_ingrs.Add(temp2);
             CountSummary();
         }
+
+       
 
         private void CountSummary()
         {
