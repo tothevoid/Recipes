@@ -28,9 +28,8 @@ namespace Catalog_of_recipes
         #region Constructor
         public ShowRecipesVm()
         {
-            //_recipes = new Data_manage().Load_rec();
             Recipes = new ObservableCollection<Item>(new Data_manage().Load_rec());
-            Temp = Recipes;
+            Temp = new ObservableCollection<Item>(new Data_manage().Load_rec());
             Items = new List<string> { "Название", "Калории", "Белки", "Жиры", "Углеводы" };
            
         }
@@ -47,7 +46,7 @@ namespace Catalog_of_recipes
 
         public List<string> Items { get; set; }
        
-    
+
         public int Index { get { return _index; } set { Set(ref _index, value); } }
 
         public string SearchQuery
@@ -59,7 +58,13 @@ namespace Catalog_of_recipes
                 if (SearchQuery != "")
                     Search();
                 else
-                    Recipes = Temp;
+                {
+                   Recipes.Clear();
+                    foreach (var i in Temp)
+                    {
+                        Recipes.Add(i);
+                    }
+                }
             }
         }
         #endregion
@@ -93,18 +98,27 @@ namespace Catalog_of_recipes
             bool isNum = Double.TryParse(SearchQuery, out res);
             if (isNum == false && Index != 0)
             {
-                Recipes = null;
+                Recipes.Clear();
                 return;
             }
-            Recipes = new ObservableCollection<Item>(Temp.Where(x => MyComparer(x, SearchQuery.ToLower(), isNum))); ;
+            Recipes.Clear();
+            var temp = (Temp.Where(x => MyComparer(x, SearchQuery.ToLower(), isNum)));
+            foreach (var i in temp)
+            {
+                Recipes.Add(i);
+            }
+            
         }
 
         private void Change(object parameter)
         {
             IList list = parameter as IList;
-            ObservableCollection<Item> Selected = new ObservableCollection<Item>(list.Cast<Item>().ToList());
-            Temp = Temp.Except(Selected);
-            Recipes = new ObservableCollection<Item>(Recipes.Except(Selected));
+            List<Item> Selected = list.Cast<Item>().ToList();
+            Temp = new ObservableCollection<Item>(Temp.Except(Selected));
+            foreach (var i in Selected)
+            {
+                Recipes.Remove(i);
+            }
         }
         #endregion
 

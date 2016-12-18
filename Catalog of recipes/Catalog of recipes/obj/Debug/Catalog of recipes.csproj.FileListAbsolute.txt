@@ -145,3 +145,18 @@ C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\
 C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.g.resources
 C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog_of_recipes.Properties.Resources.resources
 C:\Users\ivang\Google Диск\бекап курсача\1.4\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csproj.GenerateResource.Cache
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe.config
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.exe
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.exe
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\bin\Debug\Catalog of recipes.pdb
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csprojResolveAssemblyReference.cache
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.g.cs
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Debug\App.g.cs
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.cache
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes_MarkupCompile.lref
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Debug\MainMenu.baml
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.g.resources
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog_of_recipes.Properties.Resources.resources
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Debug\Catalog of recipes.csproj.GenerateResource.Cache

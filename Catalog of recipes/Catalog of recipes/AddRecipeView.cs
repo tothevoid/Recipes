@@ -79,12 +79,9 @@ namespace Catalog_of_recipes
 
         private void Add_recipe(object parameter)
         {
-            Item a;
-            var vm = new ShowRecipesVm();
             List<double> props = Summary.Split(':').Select(x => double.Parse(x)).ToList();
             Recipes.Add(new Item(Name, props[0], props[1], props[2], props[3]));
-            //ShowRecipesVm.Recipes.Add(a);
-            ShowRecipesVm.Recipes.Add(new Item("ss",2,2,2,2));
+            Temp.Add(new Item(Name, props[0], props[1], props[2], props[3]));
             //if (Description == null)
             //    Description = "Отсутствует";
             //if (Name != null && Using_ingrs.Count != 0 && Selected_time != null)
