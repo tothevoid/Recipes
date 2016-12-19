@@ -21,6 +21,7 @@ namespace Catalog_of_recipes
         #endregion
 
         #region Fields
+        private string _message;
         private readonly List<Ingredient> Ingredients;   
         private string _name, _description;
         private List<string> _search;
@@ -31,6 +32,7 @@ namespace Catalog_of_recipes
         #endregion
 
         #region Properties
+        public string Message { get { return _message; } set { Set(ref _message, value); } }
         public string SelectedTime { get { return _selectedTime; } set { Set(ref _selectedTime, value); } }
         public string Weight { get { return _weight; } set {Set(ref _weight,value); } }
         public string Summary {get { return _summary; } set {Set(ref _summary,value);} }
@@ -45,15 +47,18 @@ namespace Catalog_of_recipes
         #region Methods
         private void Add_recipe(object parameter)
         {
-            if (Name.Trim() == "" || Using_ingrs.Count == 0 || SelectedTime == null)
+            if (Name=="" || Using_ingrs.Count == 0 || SelectedTime == null)
+            {
+                Message = "Не все поля заполнены";
                 return;
+            }
             if (Description == null)
                 Description = "Отсутствует";
             List<double> props = Summary.Split(':').Select(x => double.Parse(x)).ToList();
             if (Temp.Count == Recipes.Count || Recipes.Count == 0)
                 Recipes.Add(new Item(Name, props[0], props[1], props[2], props[3]));
             Temp.Add(new Item(Name, props[0], props[1], props[2], props[3]));
-
+            Message = String.Format("Рецепт {0} успешно добавлен ",Name);
 
 
             //string a = "";
@@ -64,7 +69,7 @@ namespace Catalog_of_recipes
             //}
             //Recipe b;
             //b = (new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3],  a.Trim()));
-            
+
 
         }
        

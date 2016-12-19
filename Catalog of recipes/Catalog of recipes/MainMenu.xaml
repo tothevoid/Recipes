@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Catalog_of_recipes"
         mc:Ignorable="d"
-        Title="Recipes" Height="619.161" Width="595.43" WindowStartupLocation="CenterScreen"  Closed="Close ">
+        Title="Recipes" Height="619.161" Width="595.43" WindowStartupLocation="CenterScreen"  Closed="Close " >
     <Grid>
         <TabControl >
             <TabItem Header="Рецепты" x:Name="tab2">
@@ -15,10 +15,10 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="29" />
-                        <RowDefinition Height="300"/>
+                        <!--<RowDefinition Height="300"/>-->
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Border Grid.Row="2" BorderThickness="2" BorderBrush="Black"/>
+                    <!--<Border Grid.Row="2" BorderThickness="2" BorderBrush="Black"/>-->
                     <StackPanel Grid.Row="0"  Orientation="Vertical">
                         <StackPanel Orientation="Horizontal">
                             <TextBox  HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Text="{Binding SearchQuery,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
@@ -37,13 +37,13 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>
-                    <StackPanel Grid.Row="2">
+                    <!--<StackPanel Grid.Row="2">
                         <Label Content="Подробнее" HorizontalAlignment="Center"/>
                         <Label Content="Ингредиенты: "/>
                         <TextBlock Height="40" Text="{Binding Curr_ingrs}"/>
                         <Label Content="Описание: "/>
                         <TextBlock Text="{Binding Description}" Height="112"/>
-                    </StackPanel>
+                    </StackPanel>-->
                 </Grid>
             </TabItem>
             <TabItem x:Name="tab" Header="Добавление рецепта" >
@@ -98,27 +98,28 @@
                     <StackPanel  Grid.ColumnSpan="3" Grid.Row="2">
                         <Label  Content="Используемые ингредиенты: "/>
                         <DataGrid ItemsSource="{Binding Using_ingrs}" Height="212" AutoGenerateColumns="False" >
-                        <DataGrid.Columns>
+                            <DataGrid.Columns>
                                 <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="3*"/>
                                 <DataGridTextColumn Header="Белки" Binding="{Binding Pr}" Width="2*"/>
                                 <DataGridTextColumn Header="Углеводы" Binding="{Binding Ch}" Width="2*"/>
                                 <DataGridTextColumn Header="Жиры" Binding="{Binding Fat}" Width="2*"/>
                                 <DataGridTextColumn Header="Калории" Binding="{Binding Cl}" Width="2*"/>
                                 <DataGridTextColumn Header="Масса" Binding="{Binding Weight}" Width="2*"/>
-                            </DataGrid.Columns>    
+                            </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>
-                    <Button Command="{Binding Add_rec}" Content="Добавить рецепт" Width="150" HorizontalAlignment="Right" Grid.Row="3" Grid.ColumnSpan="2"/>
+                    <Button Command="{Binding Add_rec}" Content="Добавить рецепт" Width="150" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right"/>
+                    <TextBlock Text="{Binding Message}" HorizontalAlignment="Left" Grid.Row="3" FontSize="20"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Добавление ингредиента">
+            <!--<TabItem Header="Добавление ингредиента">
                 <Grid >
                     <TextBox x:Name="ingr" Text="NAME" Margin="132,37,514,320" Background="#FF26CEFF" Foreground="White" FontSize="30" BorderBrush="White" FontFamily="Showcard Gothic"/>
                     <DataGrid Margin="540,37,10,20"  />
                     <TextBox x:Name="bjd" Text="RATIO" Margin="132,155,514,197" FontSize="35" Background="#FF26CEFF" Foreground="White" BorderBrush="White" FontFamily="Showcard Gothic" />
                     <Button Margin="160,350,556,20"  BorderBrush="White" Background="#FF26CEFF" Foreground="White" Content="OK" FontFamily="Showcard Gothic"/>
                 </Grid>
-            </TabItem>
+            </TabItem>-->
         </TabControl>
     </Grid>
 </Window>
