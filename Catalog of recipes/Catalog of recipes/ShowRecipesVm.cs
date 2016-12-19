@@ -13,8 +13,10 @@ namespace Catalog_of_recipes
         #region Constructor
         public ShowRecipesVm()
         {
-            Recipes = new ObservableCollection<Item>(new Data_manage().Load_rec());
-            Temp = new Data_manage().Load_rec();
+            Load();
+            Load_Temp();
+            //Recipes = new ObservableCollection<Item>(new Data_manage().Load_rec());
+            //Temp = new Data_manage().Load_rec();
             Items = new List<string> { "Название", "Калории", "Белки", "Жиры", "Углеводы" };
             // NEED TO FIX
             SearchQuery = "a";

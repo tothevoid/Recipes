@@ -45,16 +45,27 @@ namespace Catalog_of_recipes
         #region Methods
         private void Add_recipe(object parameter)
         {
+            if (Name.Trim() == "" || Using_ingrs.Count == 0 || SelectedTime == null)
+                return;
+            if (Description == null)
+                Description = "Отсутствует";
             List<double> props = Summary.Split(':').Select(x => double.Parse(x)).ToList();
             if (Temp.Count == Recipes.Count || Recipes.Count == 0)
                 Recipes.Add(new Item(Name, props[0], props[1], props[2], props[3]));
             Temp.Add(new Item(Name, props[0], props[1], props[2], props[3]));
-            //if (Description == null)
-            //    Description = "Отсутствует";
-            //if (Name != null && Using_ingrs.Count != 0 && SelectedTime != null)
-            //{
 
-            //}   
+
+
+            //string a = "";
+            //foreach (var x in Using_ingrs)
+            //{
+            //    a += x.Name + " ";
+            //    a += x.Weight + " ";
+            //}
+            //Recipe b;
+            //b = (new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3],  a.Trim()));
+            
+
         }
        
         private void Add(object parameter)

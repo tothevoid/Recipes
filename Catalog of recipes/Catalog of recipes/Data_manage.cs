@@ -5,6 +5,7 @@ using System.IO;
 
 namespace Catalog_of_recipes
 {
+    [Serializable]
     class Item
     {
         public string Name { get; set; }
@@ -22,6 +23,20 @@ namespace Catalog_of_recipes
         }
     }
 
+    class Recipe:Item
+    {
+        public string Time { get; set; }
+        public string Description { get; set; }
+        public string Ingredients { get; set; }
+        public Recipe(string Name, string Time, string Description, double Pr, double Ch, double Fat, double Cl, string Ingredients) :base(Name,Pr,Ch,Fat,Cl)
+        {
+            this.Time = Time;
+            this.Description = Description;
+            this.Ingredients = Ingredients;
+        }
+
+    }
+
     class Ingredient:Item
     {
         public double Weight { get; set; }
@@ -33,14 +48,6 @@ namespace Catalog_of_recipes
 
     class Data_manage
     {
-
-        public List<Item> Load_rec()
-        {
-            var temp = File.ReadAllLines("Recipes.txt");
-            List<Item> Recipes = temp.Select(x => x.Split()).Select(x=>new Item(x[0], Convert.ToDouble(x[1]), Convert.ToDouble(x[2]), Convert.ToDouble(x[3]), Convert.ToDouble(x[4]))).ToList();
-            return Recipes;
-        }
-
         public List<Ingredient> Load_ingr()
         {
             var temp = File.ReadAllLines("Ingredients.txt");

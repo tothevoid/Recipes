@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Catalog_of_recipes"
         mc:Ignorable="d"
-        Title="Recipes" Height="619.161" Width="595.43" WindowStartupLocation="CenterScreen">
+        Title="Recipes" Height="619.161" Width="595.43" WindowStartupLocation="CenterScreen"  Closed="Close ">
     <Grid>
         <TabControl >
             <TabItem Header="Рецепты" x:Name="tab2">
@@ -15,18 +15,19 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="29" />
-                        <RowDefinition />
+                        <RowDefinition Height="300"/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
+                    <Border Grid.Row="2" BorderThickness="2" BorderBrush="Black"/>
                     <StackPanel Grid.Row="0"  Orientation="Vertical">
                         <StackPanel Orientation="Horizontal">
                             <TextBox  HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Text="{Binding SearchQuery,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                             <ComboBox  SelectedIndex="{Binding Index}" Width="222" ItemsSource="{Binding Items}" />
                             <Button Content="Удалить" Command="{Binding DeleteRecipes}" CommandParameter="{Binding ElementName=Search_table, Path=SelectedItems}"  Width="70" />
-                            <Button Click="check" Width="40"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Grid.Row="1">
-                        <DataGrid x:Name="Search_table" AutoGenerateColumns="False" ItemsSource="{Binding Recipes}"  >
+                        <DataGrid x:Name="Search_table" AutoGenerateColumns="False" ItemsSource="{Binding Recipes}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
                                 <DataGridTextColumn Header="Белки" Binding="{Binding Pr}"/>
@@ -36,44 +37,13 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Подробнее" Visibility="{Binding Show}">
-                <TabItem.DataContext>
-                    <local:DetailsVM/>
-                </TabItem.DataContext>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="140"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel>
-                        <Label Content="Название: "/>
-                        <TextBlock Text="123"/>
-                    </StackPanel>
-                    <StackPanel Grid.Column="1" Grid.RowSpan="2">
-                        <Label Content="Белки/Жиры/Углеводы/Калории" HorizontalAlignment="Center"/>
-                        <TextBlock Height="48" HorizontalAlignment="Center"><Run/><LineBreak/><Run Text="100 ; 200 ; 300 ; 400"/></TextBlock>
-                    </StackPanel>
-                    <StackPanel Grid.Row="1">
-                        <Label Content="Время: "/>
-                        <TextBlock Text="Обед"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
+                    <StackPanel Grid.Row="2">
+                        <Label Content="Подробнее" HorizontalAlignment="Center"/>
                         <Label Content="Ингредиенты: "/>
-                        <TextBlock Text="Что-то"/>
+                        <TextBlock Height="40" Text="{Binding Curr_ingrs}"/>
+                        <Label Content="Описание: "/>
+                        <TextBlock Text="{Binding Description}" Height="112"/>
                     </StackPanel>
-                    <StackPanel Grid.Row="3" Grid.ColumnSpan="2">
-                        <Label Content="Описание"/>
-                        <TextBlock Text="Smth"/>
-                    </StackPanel>
-
                 </Grid>
             </TabItem>
             <TabItem x:Name="tab" Header="Добавление рецепта" >

@@ -58,7 +58,6 @@
     </ApplicationDefinition>
     <Compile Include="AddRecipeView.cs" />
     <Compile Include="CommandBase.cs" />
-    <Compile Include="DetailsVM.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ShowRecipesVm.cs" />
     <Compile Include="ViewModelBase.cs" />
