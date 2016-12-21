@@ -17,8 +17,9 @@
                         <RowDefinition Height="29" />
                         <!--<RowDefinition Height="300"/>-->
                         <RowDefinition/>
+                        <RowDefinition />
                     </Grid.RowDefinitions>
-                    <!--<Border Grid.Row="2" BorderThickness="2" BorderBrush="Black"/>-->
+                    <Border Grid.Row="2" BorderThickness="2" BorderBrush="Black"/>
                     <StackPanel Grid.Row="0"  Orientation="Vertical">
                         <StackPanel Orientation="Horizontal">
                             <TextBox  HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Text="{Binding SearchQuery,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
@@ -27,9 +28,10 @@
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Grid.Row="1">
-                        <DataGrid x:Name="Search_table" AutoGenerateColumns="False" ItemsSource="{Binding Recipes}">
+                        <DataGrid x:Name="Search_table" AutoGenerateColumns="False" ItemsSource="{Binding Recipes}" MaxHeight="405">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                                <DataGridTextColumn Header="Время" Binding="{Binding Time}"/>
                                 <DataGridTextColumn Header="Белки" Binding="{Binding Pr}"/>
                                 <DataGridTextColumn Header="Углеводы" Binding="{Binding Ch}"/>
                                 <DataGridTextColumn Header="Жиры" Binding="{Binding Fat}"/>
@@ -37,13 +39,13 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>
-                    <!--<StackPanel Grid.Row="2">
+                    <StackPanel Grid.Row="2">
                         <Label Content="Подробнее" HorizontalAlignment="Center"/>
                         <Label Content="Ингредиенты: "/>
                         <TextBlock Height="40" Text="{Binding Curr_ingrs}"/>
                         <Label Content="Описание: "/>
                         <TextBlock Text="{Binding Description}" Height="112"/>
-                    </StackPanel>-->
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tab" Header="Добавление рецепта" >

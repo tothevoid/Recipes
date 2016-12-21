@@ -17,11 +17,6 @@ namespace Catalog_of_recipes
             InitializeComponent();
         }
 
-        private void Load (object sender, RoutedEventArgs e)
-        {
-            ViewModelBase.Load();
-        }
-
         private void Close (object sender, EventArgs e)
         {
             ViewModelBase.Save();

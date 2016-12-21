@@ -23,6 +23,7 @@ namespace Catalog_of_recipes
         }
     }
 
+    [Serializable]
     class Recipe:Item
     {
         public string Time { get; set; }

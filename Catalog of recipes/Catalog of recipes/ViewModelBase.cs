@@ -15,10 +15,13 @@ namespace Catalog_of_recipes
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public static ObservableCollection<Item> Recipes { get; set; }
-        protected static List<Item> Temp { get; set; }
+        //public static ObservableCollection<Item> Recipes { get; set; }
+        //protected static List<Item> Temp { get; set; }
 
-        public static BinaryFormatter formatter = new BinaryFormatter();
+        public static ObservableCollection<Recipe> Recipes { get; set; }
+        protected static List<Recipe> Temp { get; set; }
+
+        private static BinaryFormatter formatter = new BinaryFormatter();
 
         public static void Save()
         {
@@ -34,11 +37,11 @@ namespace Catalog_of_recipes
             {
                 try
                 {
-                    Recipes = (ObservableCollection<Item>) formatter.Deserialize(fs);
+                    Recipes = (ObservableCollection<Recipe>) formatter.Deserialize(fs);
                 }
                 catch
                 {
-                    Recipes = new ObservableCollection<Item>();
+                    Recipes = new ObservableCollection<Recipe>();
                 }
             }
         }
@@ -49,21 +52,12 @@ namespace Catalog_of_recipes
             {
                 try
                 {
-                    Temp = ((ObservableCollection<Item>)formatter.Deserialize(fs)).ToList();
+                    Temp = ((ObservableCollection<Recipe>)formatter.Deserialize(fs)).ToList();
                 }
                 catch
                 {
-                    Temp = new List<Item>();
+                    Temp = new List<Recipe>();
                 }
-              
-            }
-        }
-
-        protected void Fire([CallerMemberName] string propName = null)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
         }
 

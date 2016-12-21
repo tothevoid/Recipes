@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
 using System.Windows.Input;
 
 namespace Catalog_of_recipes
@@ -55,24 +56,21 @@ namespace Catalog_of_recipes
             if (Description == null)
                 Description = "Отсутствует";
             List<double> props = Summary.Split(':').Select(x => double.Parse(x)).ToList();
+            StringBuilder ingr = new StringBuilder();
+            foreach (var x in Using_ingrs)
+                ingr.Append(x.Name + "/" + x.Weight + "/");
             if (Temp.Count == Recipes.Count || Recipes.Count == 0)
-                Recipes.Add(new Item(Name, props[0], props[1], props[2], props[3]));
-            Temp.Add(new Item(Name, props[0], props[1], props[2], props[3]));
+               Recipes.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
+            Temp.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
             Message = String.Format("Рецепт {0} успешно добавлен ",Name);
-
-
-            //string a = "";
-            //foreach (var x in Using_ingrs)
-            //{
-            //    a += x.Name + " ";
-            //    a += x.Weight + " ";
-            //}
-            //Recipe b;
-            //b = (new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3],  a.Trim()));
-
-
+           
+         
+            //List<string> list = Convert.ToString(ingr).Split('/').ToList();
+            //list.RemoveAt(list.Count-1);
+            //Recipes.Add(new Item(Name, props[0], props[1], props[2], props[3]));
+            //Temp.Add(new Item(Name, props[0], props[1], props[2], props[3]));
         }
-       
+
         private void Add(object parameter)
         {
             var temp = Ingredients[SearchSelect];
