@@ -14,8 +14,7 @@
                 </TabItem.DataContext>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="29" />
-                        <!--<RowDefinition Height="300"/>-->
+                        <RowDefinition Height="29"/>
                         <RowDefinition/>
                         <RowDefinition />
                     </Grid.RowDefinitions>
@@ -28,7 +27,7 @@
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Grid.Row="1">
-                        <DataGrid x:Name="Search_table" AutoGenerateColumns="False" ItemsSource="{Binding Recipes}" MaxHeight="405">
+                        <DataGrid x:Name="Search_table" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Recipes}" MaxHeight="405" SelectedIndex="{Binding Current_recipe}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
                                 <DataGridTextColumn Header="Время" Binding="{Binding Time}"/>
@@ -42,9 +41,9 @@
                     <StackPanel Grid.Row="2">
                         <Label Content="Подробнее" HorizontalAlignment="Center"/>
                         <Label Content="Ингредиенты: "/>
-                        <TextBlock Height="40" Text="{Binding Curr_ingrs}"/>
+                        <TextBox IsReadOnly="True" Height="40" Text="{Binding Curr_ingrs}" Margin="10,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
                         <Label Content="Описание: "/>
-                        <TextBlock Text="{Binding Description}" Height="112"/>
+                        <TextBox Text="{Binding Description}" Height="112" Margin="10,0" TextWrapping="Wrap" IsReadOnly="True" VerticalScrollBarVisibility="Visible"/>
                     </StackPanel>
                 </Grid>
             </TabItem>

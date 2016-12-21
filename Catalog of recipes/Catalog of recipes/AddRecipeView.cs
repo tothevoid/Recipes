@@ -13,7 +13,7 @@ namespace Catalog_of_recipes
         public AddRecipeView()
         {
             Time = new List<string>() { "Праздничное", "Завтрак", "Обед", "Ужин" };
-            Ingredients = new Data_manage().Load_ingr();
+            Ingredients = new Model().Load_ingr();
             Search = Ingredients.Select(x => x.Name).ToList();
             Using_ingrs = new ObservableCollection<Ingredient>() {};
             Summary = "0: 0: 0: 0";
@@ -64,11 +64,8 @@ namespace Catalog_of_recipes
             Temp.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
             Message = String.Format("Рецепт {0} успешно добавлен ",Name);
            
-         
-            //List<string> list = Convert.ToString(ingr).Split('/').ToList();
-            //list.RemoveAt(list.Count-1);
-            //Recipes.Add(new Item(Name, props[0], props[1], props[2], props[3]));
-            //Temp.Add(new Item(Name, props[0], props[1], props[2], props[3]));
+
+        
         }
 
         private void Add(object parameter)
@@ -82,7 +79,7 @@ namespace Catalog_of_recipes
 
         private void CountSummary()
         {
-            Item temp = new Item(null, 0, 0, 0, 0);
+            Item temp = new Recipe(null,null,null, 0, 0, 0, 0, null);
             foreach (var x in Using_ingrs)
             {
                 temp.Ch += x.Ch;

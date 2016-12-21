@@ -6,7 +6,7 @@ using System.IO;
 namespace Catalog_of_recipes
 {
     [Serializable]
-    class Item
+     class Item
     {
         public string Name { get; set; }
         public double Pr { get; set; }
@@ -35,7 +35,6 @@ namespace Catalog_of_recipes
             this.Description = Description;
             this.Ingredients = Ingredients;
         }
-
     }
 
     class Ingredient:Item
@@ -47,7 +46,7 @@ namespace Catalog_of_recipes
         }
     }
 
-    class Data_manage
+    class Model
     {
         public List<Ingredient> Load_ingr()
         {
@@ -55,8 +54,6 @@ namespace Catalog_of_recipes
             List<Ingredient> Ingredients = temp.Select(x => x.Split('\t')).Select(x => new Ingredient(x[0], Convert.ToDouble(x[1]), Convert.ToDouble(x[2]), Convert.ToDouble(x[3]), Convert.ToDouble(x[4]), Convert.ToDouble(x[5]))).ToList();
             return Ingredients;
         }
-
-      
     }
 }
 

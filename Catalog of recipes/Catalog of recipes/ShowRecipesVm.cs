@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Input;
 
@@ -14,7 +16,6 @@ namespace Catalog_of_recipes
         public ShowRecipesVm()
         {
             Load();
-            Load_Temp();
             Items = new List<string> { "Название", "Калории", "Белки", "Жиры", "Углеводы" };
             // NEED TO FIX
             SearchQuery = "a";
@@ -23,23 +24,38 @@ namespace Catalog_of_recipes
         #endregion
 
         #region Fields
-        private string _searchquery;
+        private string _searchQuery;
         private double _value;
         private int _index;
-        
+        private int _currentRecipe = -1;
+        private string _currIngrs;
+        private string _description;
         #endregion
 
         #region Properties
 
+        public string Curr_ingrs {get { return _currIngrs; } set {Set(ref _currIngrs, value);} }
+        public string Description { get { return _description; } set {Set(ref _description,value); } }
         public List<string> Items { get; set; }
         public int Index { get { return _index; } set { Set(ref _index, value); } }
 
-        public string SearchQuery
+        public int Current_recipe
         {
-            get { return _searchquery; }
+            get { return _currentRecipe; }
             set
             {
-                Set(ref _searchquery, value);
+                Set(ref _currentRecipe,value);
+                UpdateDetails();
+            }
+            
+        }
+
+        public string SearchQuery
+        {
+            get { return _searchQuery; }
+            set
+            {
+                Set(ref _searchQuery, value);
                 if (SearchQuery != "")
                     Search();
                 else
@@ -47,13 +63,26 @@ namespace Catalog_of_recipes
                    Recipes.Clear();
                    foreach (var i in Temp)
                         Recipes.Add(i);
-                    
                 }
             }
         }
         #endregion
         
         #region Methods
+
+        void UpdateDetails()
+        {
+            List<string> ingrs = Recipes[Current_recipe].Ingredients.Split('/').ToList();
+            ingrs.RemoveAt(ingrs.Count - 1);
+            StringBuilder convert = new StringBuilder();
+            for (int i = -2; i < ingrs.Count-2; i+=2)
+            {
+                convert.Append(string.Format("{0} ({1} грамм); ", ingrs[i + 2], ingrs[i + 3]));
+            }
+            Curr_ingrs = Convert.ToString(convert);
+            Description = Recipes[Current_recipe].Description;
+        }
+
         private bool MyComparer(Item item, string searchString, bool isNum)
         {
             if (isNum)
