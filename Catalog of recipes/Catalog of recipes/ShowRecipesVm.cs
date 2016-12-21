@@ -17,9 +17,6 @@ namespace Catalog_of_recipes
         {
             Load();
             Items = new List<string> { "Название", "Калории", "Белки", "Жиры", "Углеводы" };
-            // NEED TO FIX
-            SearchQuery = "a";
-            SearchQuery = "";
         }
         #endregion
 
@@ -72,6 +69,8 @@ namespace Catalog_of_recipes
 
         void UpdateDetails()
         {
+            if (Current_recipe<0)
+                return;
             List<string> ingrs = Recipes[Current_recipe].Ingredients.Split('/').ToList();
             ingrs.RemoveAt(ingrs.Count - 1);
             StringBuilder convert = new StringBuilder();
@@ -120,10 +119,9 @@ namespace Catalog_of_recipes
             {
                 Recipes.Add(i);
             }
-            
         }
 
-        private void Remove(object parameter) // BUG (TEMP IS CHANGABLE AFTER SEARCH)
+        private void Remove(object parameter) 
         {
             IList list = parameter as IList;
             List<Recipe> Selected = list.Cast<Recipe>().ToList();

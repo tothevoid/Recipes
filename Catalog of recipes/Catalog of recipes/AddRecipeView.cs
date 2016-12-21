@@ -62,7 +62,7 @@ namespace Catalog_of_recipes
             if (Temp.Count == Recipes.Count || Recipes.Count == 0)
                Recipes.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
             Temp.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
-            Message = String.Format("Рецепт {0} успешно добавлен ",Name);
+            Message = String.Format("{0} успешно добавлен ",Name);
            
 
         
