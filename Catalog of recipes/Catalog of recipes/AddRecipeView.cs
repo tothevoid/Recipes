@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
+using Microsoft.Win32;
 
 namespace Catalog_of_recipes
 {
@@ -30,9 +32,11 @@ namespace Catalog_of_recipes
         private string _summary;
         private string _weight;
         private string _selectedTime;
+        private Uri _image;
         #endregion
 
         #region Properties
+        public Uri Image{get { return _image; } set { Set(ref _image, value); }}
         public string Message { get { return _message; } set { Set(ref _message, value); } }
         public string SelectedTime { get { return _selectedTime; } set { Set(ref _selectedTime, value); } }
         public string Weight { get { return _weight; } set {Set(ref _weight,value); } }
@@ -71,10 +75,48 @@ namespace Catalog_of_recipes
         private void Add(object parameter)
         {
             var temp = Ingredients[SearchSelect];
-            var dif = Convert.ToDouble(Weight)/temp.Weight;
-            var temp2 = new Ingredient(temp.Name, temp.Pr*dif,temp.Ch*dif,temp.Fat*dif,temp.Cl*dif,Convert.ToDouble(Weight));
-            Using_ingrs.Add(temp2);
+            var dif = Convert.ToDouble(Weight) / temp.Weight;
+            var temp2 = new Ingredient(temp.Name, temp.Pr * dif, temp.Ch * dif, temp.Fat * dif, temp.Cl * dif, Convert.ToDouble(Weight));
+            int index = Check(temp);
+            if (index == -1)
+                Using_ingrs.Add(temp2);
+            else
+            {
+                Using_ingrs[index].Ch += temp2.Ch;
+                Using_ingrs[index].Fat += temp2.Fat;
+                Using_ingrs[index].Cl += temp2.Cl;
+                Using_ingrs[index].Pr += temp2.Pr;
+                Using_ingrs[index].Weight += temp2.Weight;
+                var update = Using_ingrs[index];
+                Using_ingrs.RemoveAt(index);
+                Using_ingrs.Add(update);
+            }
             CountSummary();
+        }
+
+        private int Check(Ingredient temp)
+        {
+            int index = -1;
+            for (int i = 0; i < Using_ingrs.Count; i++)
+            {
+                if (Using_ingrs[i].Name == temp.Name)
+                    index = i;
+            }
+            return index;
+        }
+
+        private void Add_image(object parameter)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.FileName = "Image";
+            dlg.Filter = "Image (.png)|*.png";
+            Nullable<bool> result = dlg.ShowDialog();
+
+            if (result == true)
+            { 
+                Image = new Uri(dlg.FileName);
+                //images.Add(new Uri(dlg.FileName));
+            }
         }
 
         private void CountSummary()
@@ -101,7 +143,13 @@ namespace Catalog_of_recipes
         {
             get { return new CommandBase(Add_recipe); }
         }
+
+        public ICommand AddImage
+        {
+            get { return new CommandBase(Add_image); }
+        }
         #endregion
+
     }
 
 }

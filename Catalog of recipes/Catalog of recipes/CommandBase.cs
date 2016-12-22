@@ -7,7 +7,7 @@ namespace Catalog_of_recipes
     {
         public event EventHandler CanExecuteChanged;
         private readonly Action<object> action;
-        private readonly Action _action;
+      
 
         public CommandBase(Action<object> action)
         {
