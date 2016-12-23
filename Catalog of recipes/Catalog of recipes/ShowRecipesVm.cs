@@ -16,7 +16,6 @@ namespace Catalog_of_recipes
         public ShowRecipesVm()
         {
             Load();
-            Items = new List<string> { "Название", "Калории", "Белки", "Жиры", "Углеводы" };
         }
         #endregion
 
@@ -34,8 +33,17 @@ namespace Catalog_of_recipes
         public Uri Current_img { get { return _currentImg; } set { Set(ref _currentImg,value);} }
         public string Curr_ingrs {get { return _currIngrs; } set {Set(ref _currIngrs, value);} }
         public string Description { get { return _description; } set {Set(ref _description,value); } }
-        public List<string> Items { get; set; }
-        public int Index { get { return _index; } set { Set(ref _index, value); } }
+        public List<string> Items { get;} = new List<string> { "Название", "Калории", "Белки", "Жиры", "Углеводы" };
+        public int Index
+        {
+            get { return _index; }
+            set
+            {
+                Set(ref _index, value);
+                if (SearchQuery!="")
+                Search(); 
+            }
+        }
 
         public int Current_recipe
         {

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 
@@ -58,6 +59,17 @@ namespace Catalog_of_recipes
                 Message = "Не все поля заполнены";
                 return;
             }
+            bool Exist = false;
+            foreach (var i in Recipes )
+            {
+                if (Name == i.Name)
+                    Exist = true;
+            }
+            if (Exist)
+            {
+                Message = "Рецепт с таким названием уже существует";
+                return;
+            }
             if (Description == null)
                 Description = "Отсутствует";
             List<double> props = Summary.Split(':').Select(x => double.Parse(x)).ToList();
@@ -68,6 +80,7 @@ namespace Catalog_of_recipes
                Recipes.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
             Temp.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
             Message = String.Format("{0} успешно добавлен ",Name);
+            if (Image!=null)
             File.Copy(Image.LocalPath, Environment.CurrentDirectory + String.Format(@"\Images\{0}.png",Name));   
         }
 
@@ -111,13 +124,8 @@ namespace Catalog_of_recipes
             dlg.FileName = "Image";
             dlg.Filter = "Image (.png)|*.png";
             Nullable<bool> result = dlg.ShowDialog();
-
             if (result == true)
-            { 
                 Image = new Uri(dlg.FileName);
-                
-                //images.Add(new Uri(dlg.FileName));
-            }
         }
 
         private void CountSummary()
