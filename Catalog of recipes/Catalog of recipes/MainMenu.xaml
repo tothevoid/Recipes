@@ -50,7 +50,21 @@
                         <Label Content="Описание: "/>
                         <TextBox Text="{Binding Description}" Height="112" Margin="10,0" TextWrapping="Wrap" IsReadOnly="True" VerticalScrollBarVisibility="Visible"/>
                     </StackPanel>
-                    <Image Grid.Row="2" Source="{Binding Current_img}"/>
+                    <DockPanel Grid.Row="2">
+                        <Rectangle Height="10" DockPanel.Dock="Top" Fill="Black"/>
+                        <Rectangle Height="10" DockPanel.Dock="Bottom" Fill="Black"/>
+                        <Rectangle Width="10" DockPanel.Dock="Left" Fill="Black"/>
+                        <Rectangle Width="10" DockPanel.Dock="Right" Fill="Black"/>
+                        <Image Height="225" Source="{Binding Current_img}"/>
+                        
+                       
+                    </DockPanel>
+                    <!--<StackPanel Grid.Row="2">
+                        <Rectangle Height="20"  Fill="Black" />
+                       
+                        <Rectangle Height="20" Fill="Black"/>
+                    </StackPanel>-->
+                    
                 </Grid>
             </TabItem>
             <TabItem x:Name="tab" Header="Добавление рецепта" >

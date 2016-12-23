@@ -73,6 +73,7 @@ namespace Catalog_of_recipes
 
         private void Add(object parameter)
         {
+            
             var temp = Ingredients[SearchSelect];
             var dif = Convert.ToDouble(Weight) / temp.Weight;
             var temp2 = new Ingredient(temp.Name, temp.Pr * dif, temp.Ch * dif, temp.Fat * dif, temp.Cl * dif, Convert.ToDouble(Weight));
