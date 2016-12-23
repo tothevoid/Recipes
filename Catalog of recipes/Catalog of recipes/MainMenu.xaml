@@ -18,15 +18,20 @@
                         <RowDefinition/>
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <Border Grid.Row="2" BorderThickness="2" BorderBrush="Black"/>
-                    <StackPanel Grid.Row="0"  Orientation="Vertical">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Row="2" Grid.ColumnSpan="2" BorderThickness="2" BorderBrush="Black"/>
+                    <Border Grid.Row="2" Grid.Column="1" BorderThickness="2" BorderBrush="Black"/>
+                    <StackPanel Grid.Row="0"  Orientation="Vertical" Grid.ColumnSpan="2">
                         <StackPanel Orientation="Horizontal">
-                            <TextBox  HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Text="{Binding SearchQuery,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox   HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Text="{Binding SearchQuery,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                             <ComboBox  SelectedIndex="{Binding Index}" Width="222" ItemsSource="{Binding Items}" />
                             <Button Content="Удалить" Command="{Binding DeleteRecipes}" CommandParameter="{Binding ElementName=Search_table, Path=SelectedItems}"  Width="70" />
                         </StackPanel>
                     </StackPanel>
-                    <StackPanel Grid.Row="1">
+                    <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
                         <DataGrid x:Name="Search_table" AutoGenerateColumns="False" IsReadOnly="False" ItemsSource="{Binding Recipes}" MaxHeight="405" SelectedIndex="{Binding Current_recipe}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Название" Binding="{Binding Name}" IsReadOnly="False"/>
@@ -38,13 +43,14 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>
-                    <StackPanel Grid.Row="2">
+                    <StackPanel Grid.Row="2" Grid.Column="1">
                         <Label Content="Подробнее" HorizontalAlignment="Center"/>
                         <Label Content="Ингредиенты: "/>
                         <TextBox IsReadOnly="True" Height="40" Text="{Binding Curr_ingrs}" Margin="10,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
                         <Label Content="Описание: "/>
                         <TextBox Text="{Binding Description}" Height="112" Margin="10,0" TextWrapping="Wrap" IsReadOnly="True" VerticalScrollBarVisibility="Visible"/>
                     </StackPanel>
+                    <Image Grid.Row="2" Source="{Binding Current_img}"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tab" Header="Добавление рецепта" >

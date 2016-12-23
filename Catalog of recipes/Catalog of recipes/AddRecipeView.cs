@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
@@ -67,9 +68,7 @@ namespace Catalog_of_recipes
                Recipes.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
             Temp.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
             Message = String.Format("{0} успешно добавлен ",Name);
-           
-
-        
+            File.Copy(Image.LocalPath, Environment.CurrentDirectory + String.Format(@"\Images\{0}.png",Name));   
         }
 
         private void Add(object parameter)
@@ -115,6 +114,7 @@ namespace Catalog_of_recipes
             if (result == true)
             { 
                 Image = new Uri(dlg.FileName);
+                
                 //images.Add(new Uri(dlg.FileName));
             }
         }
