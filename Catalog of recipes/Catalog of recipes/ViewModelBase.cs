@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
@@ -7,8 +8,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Catalog_of_recipes
 {
+    [Serializable]
     class ViewModelBase : INotifyPropertyChanged
     {
+        [field: NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
         private static BinaryFormatter formatter = new BinaryFormatter();
 

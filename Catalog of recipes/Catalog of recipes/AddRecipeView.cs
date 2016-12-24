@@ -77,8 +77,10 @@ namespace Catalog_of_recipes
             foreach (var x in Using_ingrs)
                 ingr.Append(x.Name + "/" + x.Weight + "/");
             if (Temp.Count == Recipes.Count || Recipes.Count == 0)
-               Recipes.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
-            Temp.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
+               //Recipes.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
+               Recipes.Add(new Recipe {Name = Name, Time = SelectedTime, Description = Description, Ingredients = Convert.ToString(ingr),Pr=props[0],Ch = props[1],Fat = props[2],Cl = props[3]});
+            Temp.Add(new Recipe { Name = Name, Time = SelectedTime, Description = Description, Ingredients = Convert.ToString(ingr), Pr = props[0], Ch = props[1], Fat = props[2], Cl = props[3] });
+            //Temp.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
             Message = String.Format("{0} успешно добавлен ",Name);
             if (Image!=null)
             File.Copy(Image.LocalPath, Environment.CurrentDirectory + String.Format(@"\Images\{0}.png",Name));   
@@ -130,7 +132,8 @@ namespace Catalog_of_recipes
 
         private void CountSummary()
         {
-            Item temp = new Recipe(null,null,null, 0, 0, 0, 0, null);
+            //Item temp = new Recipe(null,null,null, 0, 0, 0, 0, null);
+            Recipe temp = new Recipe {Ch = 0, Cl = 0, Pr = 0, Fat = 0};
             foreach (var x in Using_ingrs)
             {
                 temp.Ch += x.Ch;

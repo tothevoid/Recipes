@@ -92,22 +92,22 @@ namespace Catalog_of_recipes
             Current_img = new Uri(Environment.CurrentDirectory + String.Format(@"\Images\{0}.png",Recipes[Current_recipe].Name));
         }
 
-        private bool MyComparer(Item item, string searchString, bool isNum)
+        private bool MyComparer(Recipe rec, string searchString, bool isNum)
         {
             if (isNum)
                 _value = double.Parse(searchString.Replace(".", ","));
 
             switch (Index)
             {
-                case 0: return item.Name.ToLower().Contains(searchString);
+                case 0: return rec.Name.ToLower().Contains(searchString);
                 case 1:
-                    return Math.Abs(_value - item.Cl) < 1;
+                    return Math.Abs(_value - rec.Cl) < 1;
                 case 2:
-                    return Math.Abs(_value - item.Pr) < 1;
+                    return Math.Abs(_value - rec.Pr) < 1;
                 case 3:
-                    return Math.Abs(_value - item.Fat) < 1;
+                    return Math.Abs(_value - rec.Fat) < 1;
                 case 4:
-                    return Math.Abs(_value - item.Ch) < 1;
+                    return Math.Abs(_value - rec.Ch) < 1;
             }
             throw new ArgumentException();
         }
