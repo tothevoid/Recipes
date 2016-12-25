@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Data;
 using System.Linq;
 using System.Text;
-using System.Windows;
 using System.Windows.Input;
 
 namespace Catalog_of_recipes
@@ -32,7 +29,8 @@ namespace Catalog_of_recipes
         #region Properties
         public Uri Current_img { get { return _currentImg; } set { Set(ref _currentImg,value);} }
         public string Curr_ingrs {get { return _currIngrs; } set {Set(ref _currIngrs, value);} }
-        public string Description { get { return _description; } set {Set(ref _description,value); } }
+        public string Description { get { return _description; }
+            set {Set(ref _description,value); } }
         public List<string> Items { get;} = new List<string> { "Название", "Калории", "Белки", "Жиры", "Углеводы" };
         public int Index
         {

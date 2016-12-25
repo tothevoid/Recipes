@@ -5,8 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 
 namespace Catalog_of_recipes
@@ -17,7 +15,9 @@ namespace Catalog_of_recipes
         public AddRecipeView()
         {
             Time = new List<string>() { "Праздничное", "Завтрак", "Обед", "Ужин" };
-            Ingredients = new Model().Load_ingr();
+            //var a = new Model().Load_ingr();
+            //Ingredients = new ObservableCollection<Ingredient>(a);
+            Load_ingrs();
             Search = Ingredients.Select(x => x.Name).ToList();
             Using_ingrs = new ObservableCollection<Ingredient>() {};
             Summary = "0: 0: 0: 0";
@@ -26,14 +26,10 @@ namespace Catalog_of_recipes
         #endregion
 
         #region Fields
-        private string _message;
-        private readonly List<Ingredient> Ingredients;   
-        private string _name, _description;
         private List<string> _search;
+        //private readonly List<Ingredient> _ingredients;   
+        private string _name, _description, _message, _summary, _weight, _selectedTime;
         private int _searchselect;
-        private string _summary;
-        private string _weight;
-        private string _selectedTime;
         private Uri _image;
         #endregion
 
@@ -54,22 +50,9 @@ namespace Catalog_of_recipes
         #region Methods
         private void Add_recipe(object parameter)
         {
-            if (Name=="" || Using_ingrs.Count == 0 || SelectedTime == null)
-            {
-                Message = "Не все поля заполнены";
+            bool isReady = FieldsCheck();
+            if (isReady==false)
                 return;
-            }
-            bool Exist = false;
-            foreach (var i in Recipes )
-            {
-                if (Name == i.Name)
-                    Exist = true;
-            }
-            if (Exist)
-            {
-                Message = "Рецепт с таким названием уже существует";
-                return;
-            }
             if (Description == null)
                 Description = "Отсутствует";
             List<double> props = Summary.Split(':').Select(x => double.Parse(x)).ToList();
@@ -77,13 +60,34 @@ namespace Catalog_of_recipes
             foreach (var x in Using_ingrs)
                 ingr.Append(x.Name + "/" + x.Weight + "/");
             if (Temp.Count == Recipes.Count || Recipes.Count == 0)
-               //Recipes.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
-               Recipes.Add(new Recipe {Name = Name, Time = SelectedTime, Description = Description, Ingredients = Convert.ToString(ingr),Pr=props[0],Ch = props[1],Fat = props[2],Cl = props[3]});
-            Temp.Add(new Recipe { Name = Name, Time = SelectedTime, Description = Description, Ingredients = Convert.ToString(ingr), Pr = props[0], Ch = props[1], Fat = props[2], Cl = props[3] });
-            //Temp.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
-            Message = String.Format("{0} успешно добавлен ",Name);
+                Recipes.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
+            Temp.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
+            Message = String.Format("/{0} успешно добавлен ",Name);
             if (Image!=null)
             File.Copy(Image.LocalPath, Environment.CurrentDirectory + String.Format(@"\Images\{0}.png",Name));   
+            Reset();
+        }
+
+        private bool FieldsCheck()
+        {
+            StringBuilder msg = new StringBuilder();
+            if (Recipes.Any(i => Name == i.Name))
+            {
+                Message = "Такое название уже существует";
+                return false;
+            }
+            if (string.IsNullOrEmpty(Name))
+                    msg.Append("Имя, ");
+            if (SelectedTime == null)
+                    msg.Append("Время, ");
+            if (Using_ingrs.Count == 0)
+                    msg.Append("Ингредиенты");
+            if (msg.Length == 0)
+                    return true;
+                msg.Insert(0, "Необходимо заполнить: ");
+                Message = Convert.ToString(msg);
+                return false;
+            
         }
 
         private void Add(object parameter)
@@ -120,6 +124,15 @@ namespace Catalog_of_recipes
             return index;
         }
 
+        private void Reset()
+        {
+            Name = null;
+            Description = null;
+            Image = null;
+            SelectedTime= null;
+            Using_ingrs.Clear();
+        }
+
         private void Add_image(object parameter)
         {
             OpenFileDialog dlg = new OpenFileDialog();
@@ -132,16 +145,15 @@ namespace Catalog_of_recipes
 
         private void CountSummary()
         {
-            //Item temp = new Recipe(null,null,null, 0, 0, 0, 0, null);
-            Recipe temp = new Recipe {Ch = 0, Cl = 0, Pr = 0, Fat = 0};
-            foreach (var x in Using_ingrs)
+            Item temp = new Item(null,0, 0, 0, 0);
+            foreach (var i in Using_ingrs)
             {
-                temp.Ch += x.Ch;
-                temp.Fat += x.Fat;
-                temp.Cl += x.Cl;
-                temp.Pr += x.Pr;
+                temp.Ch += i.Ch;
+                temp.Fat += i.Fat;
+                temp.Cl += i.Cl;
+                temp.Pr += i.Pr;
             }
-            Summary = String.Format("{0} : {1} : {2} : {3}", temp.Pr, temp.Ch, temp.Fat, temp.Cl);
+            Summary = string.Format("{0} : {1} : {2} : {3}", temp.Pr, temp.Ch, temp.Fat, temp.Cl);
         }
         #endregion
 

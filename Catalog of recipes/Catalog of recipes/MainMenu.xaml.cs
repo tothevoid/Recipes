@@ -21,6 +21,7 @@ namespace Catalog_of_recipes
         private void Close (object sender, EventArgs e)
         {
             ViewModelBase.Save();
+            ViewModelBase.Save_ingrs();
         }
 
        

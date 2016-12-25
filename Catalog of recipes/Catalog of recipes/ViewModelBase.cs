@@ -1,22 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Catalog_of_recipes
 {
-    [Serializable]
     class ViewModelBase : INotifyPropertyChanged
     {
-        [field: NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
         private static BinaryFormatter formatter = new BinaryFormatter();
 
+        public static ObservableCollection<Ingredient> Ingredients { get; set; } 
         public static ObservableCollection<Recipe> Recipes { get; set; }
         protected static List<Recipe> Temp { get; set; }
+
 
         public static void Save()
         {
@@ -26,6 +26,31 @@ namespace Catalog_of_recipes
             }
         }
 
+        public static void Save_ingrs()
+        {
+            using (FileStream fs = new FileStream("Ingredients.dat", FileMode.OpenOrCreate))
+            {
+                List<Ingredient> a = Ingredients.ToList();
+                formatter.Serialize(fs, a);
+            }
+        }
+
+        public static void Load_ingrs()
+        {
+
+            using (FileStream fs = new FileStream("Ingredients.dat", FileMode.OpenOrCreate))
+            {
+                try
+                {
+                    var data = (List<Ingredient>)formatter.Deserialize(fs);
+                    Ingredients = new ObservableCollection<Ingredient>(data);
+                }
+                catch
+                {
+                    Ingredients = new ObservableCollection<Ingredient>();
+                }
+            }
+        }
         protected static void Load()
         {
             using (FileStream fs = new FileStream("Recipes.dat", FileMode.OpenOrCreate))
