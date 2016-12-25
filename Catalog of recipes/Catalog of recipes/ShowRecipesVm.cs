@@ -177,8 +177,6 @@ namespace Catalog_of_recipes
             {
                 Recipes.Add(i);
             }
-           
-
         }
         #endregion
 

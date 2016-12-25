@@ -147,7 +147,7 @@
                             <Setter Property="Maximum" Value="1000"/>
                             <Setter Property="AutoToolTipPlacement" Value="BottomRight"/>
                             <Setter Property="IsSnapToTickEnabled" Value="True"/>
-                            <Setter Property="TickFrequency" Value="1"/>
+                            <Setter Property="TickFrequency" Value="0.1"/>
                             <Setter Property="Width" Value="360"/>
                         </Style>
                     </Grid.Resources>
@@ -160,7 +160,7 @@
                         <RowDefinition Height="25"/>
                     </Grid.RowDefinitions>
                     <Border Grid.RowSpan="2" Grid.ColumnSpan="2" Background="#2e3136"/>
-                    <DataGrid Grid.Column="1" ItemsSource="{Binding Ingredients}" AutoGenerateColumns="False" Margin="0,20,0,0" >
+                    <DataGrid x:Name="table" Grid.Column="1" ItemsSource="{Binding Ingredients}" AutoGenerateColumns="False" Margin="0,20,0,0" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Name}" Header="Название" Width="2*"/>
                             <DataGridTextColumn Binding="{Binding Pr}" Header="Белки" Width="1*"/>
@@ -172,7 +172,7 @@
                     </DataGrid>
                     <StackPanel>
                         <Label Content="Название"/>
-                        <TextBox Margin="0,0,35,0" Height="25"/>
+                        <TextBox Margin="0,0,35,0" Height="25" Text="{Binding Name}"/>
                         <Label Content="Данные"/>
                         <Label Content="Белки"/>
                         <StackPanel Orientation="Horizontal">
@@ -190,9 +190,10 @@
                             <TextBox Text="{Binding ElementName=Ch,Path=Value}"/>
                         </StackPanel>
                         <Label Content="Масса"/>
-                        <TextBox Margin="0,0,35,0" Height="28"/>
+                        <TextBox Margin="0,0,338,0" Text="{Binding Weight}" Height="28"/>
                     </StackPanel>
-                    <Button Content="Добавить" Width="106" Grid.Row="1" HorizontalAlignment="Center" Margin="151,0,149,0"/>
+                    <Button Command="{Binding Add_ingr}"  Content="Добавить" Width="106" Grid.Row="1" HorizontalAlignment="Center" Margin="151,0,149,0"/>
+                    <Button Command="{Binding Del_ingr}" CommandParameter="{Binding ElementName=table, Path=SelectedItems}" Content="Удалить" Width="106" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"/>
                 </Grid>
             </TabItem>
         </TabControl>

@@ -15,13 +15,11 @@ namespace Catalog_of_recipes
         public AddRecipeView()
         {
             Time = new List<string>() { "Праздничное", "Завтрак", "Обед", "Ужин" };
-            //var a = new Model().Load_ingr();
-            //Ingredients = new ObservableCollection<Ingredient>(a);
             Load_ingrs();
-            Search = Ingredients.Select(x => x.Name).ToList();
             Using_ingrs = new ObservableCollection<Ingredient>() {};
             Summary = "0: 0: 0: 0";
             Weight = "100";
+            
         }
         #endregion
 
@@ -43,11 +41,12 @@ namespace Catalog_of_recipes
         public List<string> Time { get; set; }
         public ObservableCollection<Ingredient> Using_ingrs { get; set; }
         public int SearchSelect { get { return _searchselect; } set { Set(ref _searchselect,value);} }
-        public List<string> Search { get { return _search; } set {Set(ref _search,value);} }
+        //public List<string> Search { get { return _search; } set {Set(ref _search,value);} }
     
         #endregion
 
         #region Methods
+
         private void Add_recipe(object parameter)
         {
             bool isReady = FieldsCheck();
