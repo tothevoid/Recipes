@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="Recipes" ResizeMode="NoResize" Height="612" Width="825" WindowStartupLocation="CenterScreen" Closed="Close ">
     <Grid >
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Vernada"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="Vernada"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="#212428"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="FontFamily" Value="Vernada"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="#424549"/>
+            </Style>
+        </Grid.Resources>
         <TabControl >
             <TabItem Header="Рецепты" >
                 <TabItem.DataContext>
@@ -26,14 +42,14 @@
                     </Grid.ColumnDefinitions>
                     <Border Grid.RowSpan="5" BorderThickness="2" Background="#2e3136"/>
                     <Border Grid.Column="1"  Grid.RowSpan="5" BorderThickness="2" Background="#36393e"/>
-                    <Label  FontFamily="Verdana" Foreground="White" Content="Поиск:" HorizontalAlignment="Center"/>
+                    <Label  Content="Поиск:" HorizontalAlignment="Center"/>
                     <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="1" Margin="10,0,10,0">
-                        <TextBox  FontSize="18" Background="#ececec"  TextWrapping="Wrap" VerticalAlignment="Top" Width="182" Text="{Binding SearchQuery, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="29"/>
-                        <ComboBox  FontSize="18" FontFamily="Verdana" SelectedIndex="{Binding Index}" Width="204" ItemsSource="{Binding Items}" />
+                        <TextBox Background="#ececec" FontSize="16" Width="182" Text="{Binding SearchQuery, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="29"/>
+                        <ComboBox FontSize="16" FontFamily="Verdana" SelectedIndex="{Binding Index}" Width="204" ItemsSource="{Binding Items}" />
                     </StackPanel>
-                    <Button Grid.Row="4" FontFamily="Verdana" Foreground="White" Background="#212428" HorizontalAlignment="Left" Width="140" Content="Сбросить поиск" Command="{Binding SearchClear}" Margin="10,0,0,10"/>
-                    <Button Grid.Row="4"  FontFamily="Verdana" Foreground="White" Background="#212428" Content="Удалить рецепт(ы)" Command="{Binding DeleteRecipes}" CommandParameter="{Binding ElementName=Search_table, Path=SelectedItems}" Width="145" HorizontalAlignment="Right" Margin="0,0,5,10"/>
-                    <Label  FontFamily="Verdana" Foreground="White" Content="Подробнее: " HorizontalAlignment="Center" Grid.Column="1"/>
+                    <Button Grid.Row="4" HorizontalAlignment="Left" Width="140" Content="Сбросить поиск" Command="{Binding SearchClear}" Margin="10,0,0,10"/>
+                    <Button Grid.Row="4" Content="Удалить рецепт(ы)" Command="{Binding DeleteRecipes}" CommandParameter="{Binding ElementName=Search_table, Path=SelectedItems}" Width="145" HorizontalAlignment="Right" Margin="0,0,5,10"/>
+                    <Label  Content="Подробнее:" HorizontalAlignment="Center" Grid.Column="1"/>
                     <StackPanel Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" Margin="10,0">
                         <DataGrid  x:Name="Search_table" AutoGenerateColumns="False" IsReadOnly="True" CanUserDeleteRows="False" ItemsSource="{Binding Recipes}" MaxHeight="405" CanUserAddRows="False" SelectedIndex="{Binding Current_recipe}" CanUserReorderColumns="False" >
                             <DataGrid.Columns>
@@ -48,13 +64,11 @@
                     </StackPanel>
                     <Image Source="{Binding Current_img}"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="1"/>
                     <StackPanel Grid.Row="3"  Grid.RowSpan="2" Grid.Column="1">
-                        <Label Margin="5,0" FontFamily="Verdana" Foreground="White" Content="Ингредиенты: "/>
-                        <TextBox FontFamily="Verdana" Foreground="White"  Background="#424549" Height="56" Text="{Binding Curr_ingrs}" IsReadOnly="True" Margin="10,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
-                        <Label Margin="5,0"  FontFamily="Verdana" Foreground="White" Content="Описание: "/>
-                        <TextBox FontFamily="Verdana" Foreground="White" Background="#424549" Text="{Binding Description, Mode=TwoWay}"  Margin="10,0" TextWrapping="Wrap"  VerticalScrollBarVisibility="Visible" Height="152"/>
+                        <Label Margin="5,0" Content="Ингредиенты: "/>
+                        <TextBox  Height="56" Text="{Binding Curr_ingrs}" IsReadOnly="True" Margin="10,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
+                        <Label Margin="5,0" Content="Описание: "/>
+                        <TextBox IsReadOnly="False" Text="{Binding Description, Mode=TwoWay}"  Margin="10,0" TextWrapping="Wrap"  VerticalScrollBarVisibility="Visible" Height="152"/>
                     </StackPanel>
-                    <!--<Border  Grid.RowSpan="5" BorderThickness="1" BorderBrush="Black" />
-                    <Border Grid.Column="1" Grid.RowSpan="5" BorderBrush="Black" BorderThickness="1"/>-->
                 </Grid>
             </TabItem>
             <TabItem Header="Добавление рецепта"  >
@@ -77,31 +91,31 @@
                     <Border Grid.ColumnSpan="3" BorderThickness="2" BorderBrush="Black"  />
                     <Border Grid.Column="1" BorderThickness="2" BorderBrush="Black" />
                     <StackPanel Orientation="Vertical" Grid.ColumnSpan="3" Grid.Row="1" >
-                        <Label FontFamily="Verdana" Foreground="White" Content="Белки/Жиры/Улеводы/Калории рецепта" HorizontalAlignment="Center" VerticalAlignment="Top" Width="263" Margin="283,0,267,0"/>
-                        <TextBlock FontFamily="Verdana" Foreground="White" TextWrapping="Wrap" Text="{Binding Summary}" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center"  Width="414"/>
+                        <Label Content="Белки/Жиры/Улеводы/Калории рецепта" HorizontalAlignment="Center"/>
+                        <TextBlock FontFamily="Verdana" Foreground="White" Text="{Binding Summary}" FontSize="18" TextAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Grid.Row="0">
-                        <Label FontFamily="Verdana" Foreground="White" Margin="10,0" Content="Название:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" />
-                        <TextBox FontFamily="Verdana" Foreground="White"  Background="#424549" Text="{Binding Name}" Margin="10,0,10,0" Height="25"/>
-                        <Label FontFamily="Verdana" Foreground="White" Margin="10,0" Content="Время подачи:" />
+                        <Label  Margin="10,0" Content="Название:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" />
+                        <TextBox  Text="{Binding Name}" Margin="10,0,10,0" Height="25"/>
+                        <Label  Margin="10,0" Content="Время подачи:" />
                         <ComboBox ItemsSource="{Binding Time}" SelectedItem="{Binding SelectedTime}" IsTextSearchEnabled="False" Height="30" Margin="10,0"  />
-                        <Label FontFamily="Verdana" Foreground="White" Margin="10,0"  Content="Добавить ингредиент"/>
+                        <Label  Margin="10,0"  Content="Добавить ингредиент"/>
                         <StackPanel Margin="10,0,10,0" Orientation="Horizontal">
                             <ComboBox Height="26" ItemsSource="{Binding Search}" IsEditable="True" Width="254" IsTextSearchEnabled="True" SelectedIndex="{Binding SearchSelect}"/>
-                            <Button FontFamily="Verdana" Foreground="White" Background="#212428" Content="+" Command="{Binding Add_Ingr}" Width="26" />
+                            <Button Content="+" Command="{Binding Add_Ingr}" Width="26" />
                         </StackPanel>
-                        <Label FontFamily="Verdana" Foreground="White" Margin="10,0" Content="Масса:" />
+                        <Label Margin="10,0" Content="Масса:" />
                         <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
-                            <TextBox FontFamily="Verdana" Foreground="White"  Background="#424549" Text="{Binding Weight}"  Width="73"/>
-                            <Label FontFamily="Verdana" Foreground="White" Content="Грамм" VerticalAlignment="Center"/>
+                            <TextBox  Text="{Binding Weight}"  Width="73"/>
+                            <Label Content="Грамм" VerticalAlignment="Center"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Grid.Column="1" >
-                        <Label FontFamily="Verdana" Foreground="White" Content="Описание рецепта:" Width="243"/>
-                        <TextBox  FontFamily="Verdana" Foreground="White"  Background="#424549"  Text="{Binding Description}" Height="203" TextWrapping="Wrap" Width="243" VerticalScrollBarVisibility="Visible" AcceptsReturn="True"/>
+                        <Label Content="Описание рецепта:" Width="243"/>
+                        <TextBox   Text="{Binding Description}" Height="203" TextWrapping="Wrap" Width="243" VerticalScrollBarVisibility="Visible" AcceptsReturn="True"/>
                     </StackPanel>
                     <StackPanel  Grid.ColumnSpan="3" Grid.Row="2">
-                        <Label FontFamily="Verdana" Foreground="White" Content="Используемые ингредиенты:" HorizontalAlignment="Center"/>
+                        <Label  Content="Используемые ингредиенты:" HorizontalAlignment="Center"/>
                         <DataGrid ItemsSource="{Binding Using_ingrs}" Height="212" AutoGenerateColumns="False" FontFamily="Verdana">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="3*"/>
@@ -114,12 +128,12 @@
                         </DataGrid>
                     </StackPanel>
                     <StackPanel Grid.Column="2">
-                        <Label FontFamily="Verdana" Foreground="White" Content="Изображение:"/>
-                        <Image Height="183" Margin="10,0" Source="{Binding Image}"/>
-                        <Button FontFamily="Verdana" Foreground="White" Background="#212428" Content="Добавить изображение" Command="{Binding AddImage}"/>
+                        <Label Content="Изображение:"/>
+                        <Image Height="188" Margin="10,0" Source="{Binding Image}"/>
+                        <Button Content="Добавить изображение" Command="{Binding AddImage}"/>
                     </StackPanel>
-                    <Button FontFamily="Verdana" Foreground="White" Background="#212428" Command="{Binding Add_rec}" Content="Добавить рецепт" Width="150" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Right"/>
-                    <TextBlock Text="{Binding Message}" HorizontalAlignment="Left" Grid.Row="3" Grid.ColumnSpan="2" FontSize="20"/>
+                    <Button Command="{Binding Add_rec}" Content="Добавить рецепт" Width="150" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Right"/>
+                    <TextBlock FontFamily="Verdana" Foreground="White" Text="{Binding Message}" HorizontalAlignment="Left" Grid.Row="3" Grid.ColumnSpan="2" FontSize="20"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Добавление ингредиента" >
@@ -145,7 +159,8 @@
                         <RowDefinition/>
                         <RowDefinition Height="25"/>
                     </Grid.RowDefinitions>
-                    <DataGrid Grid.Column="1" ItemsSource="{Binding Ingredients}" AutoGenerateColumns="False" >
+                    <Border Grid.RowSpan="2" Grid.ColumnSpan="2" Background="#2e3136"/>
+                    <DataGrid Grid.Column="1" ItemsSource="{Binding Ingredients}" AutoGenerateColumns="False" Margin="0,20,0,0" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Name}" Header="Название" Width="2*"/>
                             <DataGridTextColumn Binding="{Binding Pr}" Header="Белки" Width="1*"/>
@@ -161,23 +176,23 @@
                         <Label Content="Данные"/>
                         <Label Content="Белки"/>
                         <StackPanel Orientation="Horizontal">
-                            <Slider x:Name="Pr"/>
+                            <Slider x:Name="Pr" Value="{Binding Pr}"/>
                             <TextBox Text="{Binding ElementName=Pr,Path=Value}"/>
                         </StackPanel>
                         <Label Content="Жиры"/>
                         <StackPanel Orientation="Horizontal">
-                            <Slider x:Name="Fat" />
+                            <Slider x:Name="Fat" Value="{Binding Fat}"/>
                             <TextBox Text="{Binding ElementName=Fat,Path=Value}"/>
                         </StackPanel>
                         <Label Content="Углеводы"/>
                         <StackPanel Orientation="Horizontal">
-                            <Slider x:Name="Ch"/>
+                            <Slider x:Name="Ch" Value="{Binding Ch}"/>
                             <TextBox Text="{Binding ElementName=Ch,Path=Value}"/>
                         </StackPanel>
                         <Label Content="Масса"/>
                         <TextBox Margin="0,0,35,0" Height="28"/>
                     </StackPanel>
-                    <Button Width="25" Grid.Row="1" HorizontalAlignment="Right"/>
+                    <Button Content="Добавить" Width="106" Grid.Row="1" HorizontalAlignment="Center" Margin="151,0,149,0"/>
                 </Grid>
             </TabItem>
         </TabControl>

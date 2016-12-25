@@ -96,13 +96,21 @@ namespace Catalog_of_recipes
         }
 
         private void GetImg(string Name)
-        { 
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.CacheOption = BitmapCacheOption.OnLoad;
-            image.UriSource = new Uri(Environment.CurrentDirectory + String.Format(@"\Images\{0}.png", Name));
-            image.EndInit();
-            Current_img = image;
+        {
+            try
+            {
+                BitmapImage image = new BitmapImage();
+                image.BeginInit();
+                image.CacheOption = BitmapCacheOption.OnLoad;
+                image.UriSource = new Uri(Environment.CurrentDirectory + String.Format(@"\Images\{0}.png", Name));
+                image.EndInit();
+                Current_img = image;
+            }
+            catch 
+            {
+                Curr_ingrs = null;
+            }
+          
         }
 
         private bool MyComparer(Recipe rec, string searchString, bool isNum)
@@ -156,7 +164,8 @@ namespace Catalog_of_recipes
                 File.Delete(Environment.CurrentDirectory + String.Format(@"\Images\{0}.png", i.Name));
                 Recipes.Remove(i);
             }
-            Temp = Temp.Except(Selected).ToList();
+            var edited = Temp.Except(Selected).ToList();
+            Temp = edited;
         }
 
         private void Clear(object parameter)
