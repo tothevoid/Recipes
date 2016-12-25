@@ -27,7 +27,6 @@ namespace Catalog_of_recipes
 
         #region Fields
         private List<string> _search;
-        //private readonly List<Ingredient> _ingredients;   
         private string _name, _description, _message, _summary, _weight, _selectedTime;
         private int _searchselect;
         private Uri _image;
@@ -39,12 +38,13 @@ namespace Catalog_of_recipes
         public string SelectedTime { get { return _selectedTime; } set { Set(ref _selectedTime, value); } }
         public string Weight { get { return _weight; } set {Set(ref _weight,value); } }
         public string Summary {get { return _summary; } set {Set(ref _summary,value);} }
+        public string Name { get { return _name; } set { Set(ref _name, value); } }
+        public string Description { get { return _description; } set { Set(ref _description, value); } }
         public List<string> Time { get; set; }
         public ObservableCollection<Ingredient> Using_ingrs { get; set; }
         public int SearchSelect { get { return _searchselect; } set { Set(ref _searchselect,value);} }
         public List<string> Search { get { return _search; } set {Set(ref _search,value);} }
-        public string Name { get { return _name; } set { Set(ref _name, value); } }
-        public string Description { get { return _description; } set { Set(ref _description, value); } }
+    
         #endregion
 
         #region Methods
@@ -87,7 +87,6 @@ namespace Catalog_of_recipes
                 msg.Insert(0, "Необходимо заполнить: ");
                 Message = Convert.ToString(msg);
                 return false;
-            
         }
 
         private void Add(object parameter)

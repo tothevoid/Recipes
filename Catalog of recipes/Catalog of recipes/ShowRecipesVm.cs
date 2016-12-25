@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mime;
 using System.Text;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Catalog_of_recipes
 {
@@ -23,11 +28,14 @@ namespace Catalog_of_recipes
         private int _currentRecipe = -1;
         private string _currIngrs;
         private string _description;
-        private Uri _currentImg;
+        //private Uri _currentImg;
+        private BitmapImage _currentImg;
+        private FileStream stream;
         #endregion
 
         #region Properties
-        public Uri Current_img { get { return _currentImg; } set { Set(ref _currentImg,value);} }
+        public BitmapImage Current_img { get { return _currentImg; } set { Set(ref _currentImg,value);} }
+        //public Uri Current_img { get { return _currentImg; } set { Set(ref _currentImg, value); } }
         public string Curr_ingrs {get { return _currIngrs; } set {Set(ref _currIngrs, value);} }
         public string Description { get { return _description; }
             set {Set(ref _description,value); } }
@@ -38,7 +46,7 @@ namespace Catalog_of_recipes
             set
             {
                 Set(ref _index, value);
-                if (SearchQuery!="")
+                if (string.IsNullOrEmpty(SearchQuery)==false)
                 Search(); 
             }
         }
@@ -87,7 +95,17 @@ namespace Catalog_of_recipes
             }
             Curr_ingrs = Convert.ToString(convert);
             Description = Recipes[Current_recipe].Description;
-            Current_img = new Uri(Environment.CurrentDirectory + String.Format(@"\Images\{0}.png",Recipes[Current_recipe].Name));
+            GetImg(Recipes[Current_recipe].Name);
+        }
+
+        private void GetImg(string Name)
+        { 
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.UriSource = new Uri(Environment.CurrentDirectory + String.Format(@"\Images\{0}.png", Name));
+            image.EndInit();
+            Current_img = image;
         }
 
         private bool MyComparer(Recipe rec, string searchString, bool isNum)
@@ -129,13 +147,30 @@ namespace Catalog_of_recipes
             }
         }
 
-        private void Remove(object parameter) 
+        private void Remove(object parameter)
         {
+            Current_img = null;
             IList list = parameter as IList;
             List<Recipe> Selected = list.Cast<Recipe>().ToList();
             foreach (var i in Selected)
+            {
+                File.Delete(Environment.CurrentDirectory + String.Format(@"\Images\{0}.png", i.Name));
                 Recipes.Remove(i);
+            }
             Temp = Temp.Except(Selected).ToList();
+        }
+
+        private void Clear(object parameter)
+        {
+            SearchQuery = "";
+            Index = 0;
+            Recipes.Clear();
+            foreach (var i in Temp)
+            {
+                Recipes.Add(i);
+            }
+           
+
         }
         #endregion
 
@@ -146,6 +181,10 @@ namespace Catalog_of_recipes
             get { return new CommandBase(Remove); }
         }
 
+        public ICommand SearchClear
+        {
+            get { return new CommandBase(Clear); }
+        }
         #endregion
 
     }
