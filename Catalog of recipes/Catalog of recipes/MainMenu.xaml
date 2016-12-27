@@ -40,12 +40,12 @@
                         <ColumnDefinition />
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Border Grid.RowSpan="5" BorderThickness="2" Background="#2e3136"/>
-                    <Border Grid.Column="1"  Grid.RowSpan="5" BorderThickness="2" Background="#36393e"/>
+                    <Border Grid.RowSpan="5" Background="#2e3136"/>
+                    <Border Grid.Column="1"  Grid.RowSpan="5"  Background="#36393e"/>
                     <Label  Content="Поиск:" HorizontalAlignment="Center"/>
                     <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="1" Margin="10,0,10,0">
-                        <TextBox Background="#ececec" FontSize="16" Width="182" Text="{Binding SearchQuery, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="29"/>
-                        <ComboBox FontSize="16" FontFamily="Verdana" SelectedIndex="{Binding Index}" Width="204" ItemsSource="{Binding Items}" />
+                        <TextBox Foreground="Black" Background="#ececec" FontSize="16" Width="182" Text="{Binding SearchQuery, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="29"/>
+                        <ComboBox FontSize="14" FontFamily="Verdana" SelectedIndex="{Binding Index}" Width="204" ItemsSource="{Binding Items}" />
                     </StackPanel>
                     <Button Grid.Row="4" HorizontalAlignment="Left" Width="140" Content="Сбросить поиск" Command="{Binding SearchClear}" Margin="10,0,0,10"/>
                     <Button Grid.Row="4" Content="Удалить рецепт(ы)" Command="{Binding DeleteRecipes}" CommandParameter="{Binding ElementName=Search_table, Path=SelectedItems}" Width="145" HorizontalAlignment="Right" Margin="0,0,5,10"/>
@@ -62,7 +62,7 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>
-                    <Image Source="{Binding Current_img}"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="1"/>
+                    <Image Margin="10,0" Source="{Binding Current_img}"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="1"/>
                     <StackPanel Grid.Row="3"  Grid.RowSpan="2" Grid.Column="1">
                         <Label Margin="5,0" Content="Ингредиенты: "/>
                         <TextBox  Height="56" Text="{Binding Curr_ingrs}" IsReadOnly="True" Margin="10,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />

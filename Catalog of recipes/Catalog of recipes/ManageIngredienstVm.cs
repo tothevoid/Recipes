@@ -44,8 +44,6 @@ namespace Catalog_of_recipes
             {
                 Search.Add(i.Name);
             }
-            
-
         }
 
         public ICommand Del_ingr

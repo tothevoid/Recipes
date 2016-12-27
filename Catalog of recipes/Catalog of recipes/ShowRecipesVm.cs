@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -42,6 +44,7 @@ namespace Catalog_of_recipes
             get { return _index; }
             set
             {
+                //AdvSearch();
                 Set(ref _index, value);
                 if (string.IsNullOrEmpty(SearchQuery)==false)
                 Search(); 
@@ -113,39 +116,53 @@ namespace Catalog_of_recipes
           
         }
 
-        private bool MyComparer(Recipe rec, string searchString, bool isNum)
+        private bool MyComparer(Recipe rec, char fl)
         {
-            if (isNum)
-                _value = double.Parse(searchString.Replace(".", ","));
-
+            if (SearchQuery.Length == 1 && (fl == '>' || fl == '<'))
+                return false;
             switch (Index)
             {
-                case 0: return rec.Name.ToLower().Contains(searchString);
+                case 0: return rec.Name.ToLower().Contains(SearchQuery.ToLower());
                 case 1:
-                    return Math.Abs(_value - rec.Cl) < 1;
+                    return Compare(rec.Cl, _value, fl);
                 case 2:
-                    return Math.Abs(_value - rec.Pr) < 1;
+                    return Compare(rec.Pr, _value, fl);
                 case 3:
-                    return Math.Abs(_value - rec.Fat) < 1;
+                    return Compare(rec.Fat, _value, fl);
                 case 4:
-                    return Math.Abs(_value - rec.Ch) < 1;
+                    return Compare(rec.Ch, _value, fl);
             }
             throw new ArgumentException();
         }
 
-        void Search()
+        private bool Compare(double entered, double exist, char operand)
+        {
+            switch (operand)
+            {
+                case '>':
+                    return entered > exist;
+                case '<':
+                    return entered < exist;
+                default:
+                    return Math.Abs(exist - entered) < 1;
+            }
+        }
+
+        private void Search()
         {
             if (Recipes == null)
                 return;
             double res = 0;
-            bool isNum = Double.TryParse(SearchQuery, out res);
-            if (isNum == false && Index != 0)
-            {
-                Recipes.Clear();
-                return;
-            }
+            bool isNum;
+            char fl = SearchQuery.First();
+            if (fl == '>' || fl == '<')
+                isNum = double.TryParse(SearchQuery.Replace(".", ",").Substring(1), out res);
+            else
+                isNum = double.TryParse(SearchQuery.Replace(".", ","), out res);
+            if (isNum)
+                _value = res;
             Recipes.Clear();
-            var temp = Temp.Where(x => MyComparer(x, SearchQuery.ToLower(), isNum));
+            var temp = Temp.Where(x => MyComparer(x,fl));
             foreach (var i in temp)
             {
                 Recipes.Add(i);

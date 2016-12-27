@@ -1,0 +1,14 @@
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\bin\Release\Catalog of recipes.exe.config
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\bin\Release\Catalog of recipes.exe
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\bin\Release\Catalog of recipes.pdb
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Release\MainMenu.g.cs
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Release\App.g.cs
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Release\Catalog of recipes_MarkupCompile.cache
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Release\Catalog of recipes_MarkupCompile.lref
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Release\MainMenu.baml
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Release\Catalog of recipes.g.resources
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Release\Catalog_of_recipes.Properties.Resources.resources
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Release\Catalog of recipes.csproj.GenerateResource.Cache
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Release\Catalog of recipes.exe
+C:\Users\ivang\Desktop\cursach\Catalog of recipes\Catalog of recipes\obj\Release\Catalog of recipes.pdb
