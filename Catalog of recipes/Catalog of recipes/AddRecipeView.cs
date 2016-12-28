@@ -18,7 +18,7 @@ namespace Catalog_of_recipes
         {
             Load_ingrs();
             Time = new List<string>() { "Праздничное", "Завтрак", "Обед", "Ужин" };
-            Using_ingrs = new ObservableCollection<Ingredient>() {};
+            UsingIngrs = new ObservableCollection<Ingredient>() {};
             Summary = "0: 0: 0: 0";
             Weight = "100";
             
@@ -40,7 +40,7 @@ namespace Catalog_of_recipes
         public string Name { get { return _name; } set { Set(ref _name, value); } }
         public string Description { get { return _description; } set { Set(ref _description, value); } }
         public List<string> Time { get; set; }
-        public ObservableCollection<Ingredient> Using_ingrs { get; set;}
+        public ObservableCollection<Ingredient> UsingIngrs { get; set;}
         public int SearchSelect { get { return _searchselect; } set { Set(ref _searchselect,value);} }
        
     
@@ -54,7 +54,7 @@ namespace Catalog_of_recipes
             List<Ingredient> Selected = list.Cast<Ingredient>().ToList();
             foreach (var i in Selected)
             {
-                Using_ingrs.Remove(i);
+                UsingIngrs.Remove(i);
             }
             CountSummary();
         }
@@ -68,7 +68,7 @@ namespace Catalog_of_recipes
                 Description = "Отсутствует";
             List<double> props = Summary.Split(':').Select(x => double.Parse(x)).ToList();
             StringBuilder ingr = new StringBuilder();
-            foreach (var x in Using_ingrs)
+            foreach (var x in UsingIngrs)
                 ingr.Append(x.Name + "/" + x.Weight + "/");
             if (Temp.Count == Recipes.Count || Recipes.Count == 0)
                 Recipes.Add(new Recipe { Name = Name, Time = SelectedTime, Description = Description, Pr = props[0], Fat = props[1], Ch = props[2], Cl = props[3], Ingredients = Convert.ToString(ingr) });
@@ -91,7 +91,7 @@ namespace Catalog_of_recipes
                     msg.Append("Имя, ");
             if (SelectedTime == null)
                     msg.Append("Время, ");
-            if (Using_ingrs.Count == 0)
+            if (UsingIngrs.Count == 0)
                     msg.Append("Ингредиенты ");
             if (msg.Length == 0)
                     return true;
@@ -103,22 +103,22 @@ namespace Catalog_of_recipes
         private void Add(object parameter)
         {
             
-            var temp = Ingredients[SearchSelect];
-            var dif = Math.Round(Convert.ToDouble(Weight) / temp.Weight,1);
-            var temp2 = new Ingredient { Name = temp.Name, Pr = temp.Pr * dif, Ch = temp.Ch * dif, Fat = temp.Fat * dif, Cl = temp.Cl * dif, Weight = Convert.ToDouble(Weight)};
-            int index = Check(temp);
+            var cur = Ingredients[SearchSelect];
+            var dif = Math.Round(Convert.ToDouble(Weight) / cur.Weight,1);
+            var newIngr = new Ingredient { Name = cur.Name, Pr = cur.Pr * dif, Ch = cur.Ch * dif, Fat = cur.Fat * dif, Cl = cur.Cl * dif, Weight = Convert.ToDouble(Weight)};
+            int index = Check(cur);
             if (index == -1)
-                Using_ingrs.Add(temp2);
+                UsingIngrs.Add(newIngr);
             else
             {
-                Using_ingrs[index].Ch += temp2.Ch;
-                Using_ingrs[index].Fat += temp2.Fat;
-                Using_ingrs[index].Cl += temp2.Cl;
-                Using_ingrs[index].Pr += temp2.Pr;
-                Using_ingrs[index].Weight += temp2.Weight;
-                var update = Using_ingrs[index];
-                Using_ingrs.RemoveAt(index);
-                Using_ingrs.Add(update);
+                UsingIngrs[index].Ch += newIngr.Ch;
+                UsingIngrs[index].Fat += newIngr.Fat;
+                UsingIngrs[index].Cl += newIngr.Cl;
+                UsingIngrs[index].Pr += newIngr.Pr;
+                UsingIngrs[index].Weight += newIngr.Weight;
+                var update = UsingIngrs[index];
+                UsingIngrs.RemoveAt(index);
+                UsingIngrs.Add(update);
             }
             CountSummary();
         }
@@ -127,9 +127,9 @@ namespace Catalog_of_recipes
         private int Check(Ingredient temp)
         {
             int index = -1;
-            for (int i = 0; i < Using_ingrs.Count; i++)
+            for (int i = 0; i < UsingIngrs.Count; i++)
             {
-                if (Using_ingrs[i].Name == temp.Name)
+                if (UsingIngrs[i].Name == temp.Name)
                     index = i;
             }
             return index;
@@ -142,7 +142,7 @@ namespace Catalog_of_recipes
             Image = null;
             SelectedTime= null;
             Summary = "0: 0: 0: 0";
-            Using_ingrs.Clear();
+            UsingIngrs.Clear();
         }
 
         private void Add_image(object parameter)
@@ -158,7 +158,7 @@ namespace Catalog_of_recipes
         private void CountSummary()
         {
             Item temp = new Item { Ch = 0, Cl = 0, Fat = 0, Pr = 0 };
-            foreach (var i in Using_ingrs)
+            foreach (var i in UsingIngrs)
             {
                 temp.Ch += i.Ch;
                 temp.Fat += i.Fat;

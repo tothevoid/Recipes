@@ -31,12 +31,12 @@ namespace Catalog_of_recipes
         private int _currentRecipe = -1;
         private string _currIngrs;
         private string _description;
-        private BitmapImage _currentImg;
+        private BitmapImage _currImg;
         #endregion
 
         #region Properties
-        public BitmapImage Current_img { get { return _currentImg; } set { Set(ref _currentImg,value);} }
-        public string Curr_ingrs {get { return _currIngrs; } set {Set(ref _currIngrs, value);} }
+        public BitmapImage CurrImg { get { return _currImg; } set { Set(ref _currImg,value);} }
+        public string CurrIngrs {get { return _currIngrs; } set {Set(ref _currIngrs, value);} }
         public string Description { get { return _description; } set {Set(ref _description,value); } }
         public List<string> Items { get;} = new List<string> { "Название", "Калории", "Белки", "Жиры", "Углеводы" };
         public int Index
@@ -67,7 +67,7 @@ namespace Catalog_of_recipes
             set
             {
                 Set(ref _searchQuery, value);
-                if (SearchQuery != "")
+                if (string.IsNullOrWhiteSpace(SearchQuery)==false)
                     Search();
                 else
                 {
@@ -92,7 +92,7 @@ namespace Catalog_of_recipes
             {
                 convert.Append(string.Format("{0} ({1} грамм); ", ingrs[i + 2], ingrs[i + 3]));
             }
-            Curr_ingrs = Convert.ToString(convert);
+            CurrIngrs = Convert.ToString(convert);
             Description = Recipes[Current_recipe].Description;
             GetImg(Recipes[Current_recipe].Name);
         }
@@ -106,11 +106,11 @@ namespace Catalog_of_recipes
                 image.CacheOption = BitmapCacheOption.OnLoad;
                 image.UriSource = new Uri(Environment.CurrentDirectory + String.Format(@"\Images\{0}.png", Name));
                 image.EndInit();
-                Current_img = image;
+                CurrImg = image;
             }
             catch 
             {
-                Current_img = null;
+                CurrImg = null;
             }
           
         }
@@ -170,11 +170,12 @@ namespace Catalog_of_recipes
 
         private void Remove(object parameter)
         {
-            Description = null;
-            Curr_ingrs = null;
-            Current_img = null;
             IList list = parameter as IList;
             List<Recipe> Selected = list.Cast<Recipe>().ToList();
+            Description = null;
+            CurrIngrs = null;
+            CurrImg = null;
+            Recipes.Clear();
             foreach (var i in Selected)
             {
                 File.Delete(Environment.CurrentDirectory + String.Format(@"\Images\{0}.png", i.Name));
@@ -186,7 +187,7 @@ namespace Catalog_of_recipes
 
         private void Clear(object parameter)
         {
-            SearchQuery = "";
+            SearchQuery = null;
             Index = 0;
             Recipes.Clear();
             foreach (var i in Temp)

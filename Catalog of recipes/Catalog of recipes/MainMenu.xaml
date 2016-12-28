@@ -68,10 +68,10 @@
                         </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>
-                    <Image Margin="10,0" Source="{Binding Current_img}"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="1"/>
+                    <Image Margin="10,0" Source="{Binding CurrImg}"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="1"/>
                     <StackPanel Grid.Row="3"  Grid.RowSpan="2" Grid.Column="1">
                         <Label Margin="5,0" Content="Ингредиенты: "/>
-                        <TextBox  Height="56" Text="{Binding Curr_ingrs}" IsReadOnly="True" Margin="10,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
+                        <TextBox  Height="56" Text="{Binding CurrIngrs}" IsReadOnly="True" Margin="10,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
                         <Label Margin="5,0" Content="Описание: "/>
                         <TextBox IsReadOnly="True" Text="{Binding Description, Mode=TwoWay}"  Margin="10,0" TextWrapping="Wrap"  VerticalScrollBarVisibility="Visible" Height="152"/>
                     </StackPanel>
@@ -122,7 +122,7 @@
                     </StackPanel>
                     <StackPanel  Grid.ColumnSpan="3" Grid.Row="2">
                         <Label  Content="Используемые ингредиенты:" HorizontalAlignment="Center"/>
-                        <DataGrid x:Name="tb" ItemsSource="{Binding Using_ingrs}" Height="212" FontFamily="Verdana">
+                        <DataGrid x:Name="tb" ItemsSource="{Binding UsingIngrs}" Height="212" FontFamily="Verdana">
                             <DataGrid.Columns> 
                                 <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="3*"/>
                                 <DataGridTextColumn Header="Белки" Binding="{Binding Pr}" Width="2*"/>
