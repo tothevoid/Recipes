@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -31,7 +32,6 @@ namespace Catalog_of_recipes
         private string _currIngrs;
         private string _description;
         private BitmapImage _currentImg;
-        private FileStream stream;
         #endregion
 
         #region Properties
@@ -44,7 +44,6 @@ namespace Catalog_of_recipes
             get { return _index; }
             set
             {
-                //AdvSearch();
                 Set(ref _index, value);
                 if (string.IsNullOrEmpty(SearchQuery)==false)
                 Search(); 
@@ -111,7 +110,7 @@ namespace Catalog_of_recipes
             }
             catch 
             {
-                Curr_ingrs = null;
+                Current_img = null;
             }
           
         }

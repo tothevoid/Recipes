@@ -25,24 +25,23 @@ namespace Catalog_of_recipes
 
         private void Add(object parameter)
         {
-            double b = Math.Round(Convert.ToDouble(Pr)*4+Convert.ToDouble(Ch) *4+Convert.ToDouble(Fat) *9,2);
-            var a = new Ingredient(Name,Convert.ToDouble(Pr), Convert.ToDouble(Ch), Convert.ToDouble(Fat), b,Convert.ToDouble(Weight));
-            Ingredients.Add(a);
+            double cl = Math.Round(Convert.ToDouble(Pr)*4+Convert.ToDouble(Ch) *4+Convert.ToDouble(Fat) *9,2);
+            var newIngr = new Ingredient { Name = Name, Pr = Convert.ToDouble(Pr), Ch = Convert.ToDouble(Ch), Fat = Convert.ToDouble(Fat), Cl = cl, Weight = Convert.ToDouble(Weight) };
+            Ingredients.Add(newIngr);
             Search.Add(Name);
         }
 
         private void Remove(object parameter)
         {
-            IList list = parameter as IList;
+            IList list = parameter as IList; 
             List<Ingredient> Selected = list.Cast<Ingredient>().ToList();
             foreach (var i in Selected)
             {
                 Ingredients.Remove(i);
             }
-            Search.Clear();
-            foreach (var i in Ingredients )
+            foreach (var i in Selected)
             {
-                Search.Add(i.Name);
+                Search.Remove(i.Name);
             }
         }
 

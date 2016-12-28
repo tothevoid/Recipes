@@ -6,45 +6,39 @@ using System.IO;
 namespace Catalog_of_recipes
 {
     [Serializable]
-     class Item
+    class Item
     {
-        public string Name { get; set; }
-        public double Pr { get; set; }
-        public double Ch { get; set; }
-        public double Fat { get; set; }
-        public double Cl { get; set; }
-        public Item(string Name, double Pr, double Ch, double Fat, double Cl)
-        {
-            this.Name = Name;
-            this.Pr = Pr;
-            this.Ch = Ch;
-            this.Fat = Fat;
-            this.Cl = Cl;
-        }
+        private string _name;
+        private double _pr;
+        private double _ch;
+        private double _fat;
+        private double _cl;
+
+        public string Name { get { return _name; }set{ _name = value;}}
+        public double Pr { get { return _pr; } set { _pr = value; } }
+        public double Ch { get { return _ch; } set { _ch = value; } }
+        public double Fat { get { return _fat; } set { _fat = value; } }
+        public double Cl { get { return _cl; } set { _cl = value; } }
     }
 
     [Serializable]
     class Recipe : Item
     {
-        public string Time { get; set; }
-        public string Description { get; set; }
-        public string Ingredients { get; set; }
-        public Recipe(string Name, string Time, string Description, double Pr, double Ch, double Fat, double Cl, string Ingredients) : base(Name, Pr, Ch, Fat, Cl)
-        {
-            this.Time = Time;
-            this.Description = Description;
-            this.Ingredients = Ingredients;
-        }
+        private string _time;
+        private string _description;
+        private string _ingredients;
+
+        public string Time { get { return _time; } set { _time = value; } }
+        public string Description { get { return _description; } set { _description = value; } }
+        public string Ingredients { get { return _ingredients; } set { _ingredients = value; } }
     }
 
     [Serializable]
-    class Ingredient:Item
+    class Ingredient : Item
     {
-        public double Weight { get; set; }
-        public Ingredient(string Name, double Pr, double Ch, double Fat, double Cl, double Weight):base(Name,Pr,Ch,Fat,Cl)
-        {
-            this.Weight = Weight;
-        }
+        private double _weight;
+        public double Weight { get { return _weight; } set { _weight = value; } }
+
     }
 }
 

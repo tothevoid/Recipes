@@ -22,6 +22,11 @@
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="Background" Value="#424549"/>
             </Style>
+            <Style TargetType="DataGrid">
+                <Setter Property="AutoGenerateColumns" Value="False"/>
+                <Setter Property="IsReadOnly" Value="True"/>
+                <Setter Property="CanUserReorderColumns" Value="False"/>
+            </Style>
         </Grid.Resources>
         <TabControl >
             <TabItem Header="Рецепты" >
@@ -51,15 +56,15 @@
                     <Button Grid.Row="4" Content="Удалить рецепт(ы)" Command="{Binding DeleteRecipes}" CommandParameter="{Binding ElementName=Search_table, Path=SelectedItems}" Width="145" HorizontalAlignment="Right" Margin="0,0,5,10"/>
                     <Label  Content="Подробнее:" HorizontalAlignment="Center" Grid.Column="1"/>
                     <StackPanel Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" Margin="10,0">
-                        <DataGrid  x:Name="Search_table" AutoGenerateColumns="False" IsReadOnly="True" CanUserDeleteRows="False" ItemsSource="{Binding Recipes}" MaxHeight="405" CanUserAddRows="False" SelectedIndex="{Binding Current_recipe}" CanUserReorderColumns="False" >
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="1*" />
-                                <DataGridTextColumn Header="Время" Binding="{Binding Time}" Width="1.1*"/>
-                                <DataGridTextColumn Header="Белки" Binding="{Binding Pr}" Width="45"/>
-                                <DataGridTextColumn Header="Углеводы" Binding="{Binding Ch}" Width="65"/>
-                                <DataGridTextColumn Header="Жиры" Binding="{Binding Fat}" Width="45"/>
-                                <DataGridTextColumn Header="Калории" Binding="{Binding Cl}" Width="60"/>
-                            </DataGrid.Columns>
+                        <DataGrid  x:Name="Search_table" ItemsSource="{Binding Recipes}" MaxHeight="405"  SelectedIndex="{Binding Current_recipe}" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="1*" />
+                            <DataGridTextColumn Header="Время" Binding="{Binding Time}" Width="1.1*"/>
+                            <DataGridTextColumn Header="Белки" Binding="{Binding Pr}" Width="45"/>
+                            <DataGridTextColumn Header="Углеводы" Binding="{Binding Ch}" Width="65"/>
+                            <DataGridTextColumn Header="Жиры" Binding="{Binding Fat}" Width="45"/>
+                            <DataGridTextColumn Header="Калории" Binding="{Binding Cl}" Width="60"/>
+                        </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>
                     <Image Margin="10,0" Source="{Binding Current_img}"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="1"/>
@@ -116,8 +121,8 @@
                     </StackPanel>
                     <StackPanel  Grid.ColumnSpan="3" Grid.Row="2">
                         <Label  Content="Используемые ингредиенты:" HorizontalAlignment="Center"/>
-                        <DataGrid ItemsSource="{Binding Using_ingrs}" Height="212" AutoGenerateColumns="False" FontFamily="Verdana">
-                            <DataGrid.Columns>
+                        <DataGrid x:Name="tb" ItemsSource="{Binding Using_ingrs}" Height="212" FontFamily="Verdana">
+                            <DataGrid.Columns> 
                                 <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="3*"/>
                                 <DataGridTextColumn Header="Белки" Binding="{Binding Pr}" Width="2*"/>
                                 <DataGridTextColumn Header="Углеводы" Binding="{Binding Ch}" Width="2*"/>
@@ -132,7 +137,11 @@
                         <Image Height="188" Margin="10,0" Source="{Binding Image}"/>
                         <Button Content="Добавить изображение" Command="{Binding AddImage}"/>
                     </StackPanel>
-                    <Button Command="{Binding Add_rec}" Content="Добавить рецепт" Width="150" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Right"/>
+                    <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Orientation="Horizontal" FlowDirection="RightToLeft">
+                        <Button Command="{Binding Add_rec}" Content="Добавить рецепт" Width="125"  />
+                        <Button Command ="{Binding Del_ingr}" CommandParameter="{Binding ElementName=tb, Path=SelectedItems}" Content="Удалить ингредиент" Width="150"   />
+                    </StackPanel>
+                    
                     <TextBlock FontFamily="Verdana" Foreground="White" Text="{Binding Message}" HorizontalAlignment="Left" Grid.Row="3" Grid.ColumnSpan="2" FontSize="20"/>
                 </Grid>
             </TabItem>
@@ -160,7 +169,7 @@
                         <RowDefinition Height="25"/>
                     </Grid.RowDefinitions>
                     <Border Grid.RowSpan="2" Grid.ColumnSpan="2" Background="#2e3136"/>
-                    <DataGrid x:Name="table" Grid.Column="1" ItemsSource="{Binding Ingredients}" AutoGenerateColumns="False" Margin="0,20,0,0" >
+                    <DataGrid x:Name="table" Grid.Column="1" ItemsSource="{Binding Ingredients}" Margin="0,20,0,0" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Name}" Header="Название" Width="2*"/>
                             <DataGridTextColumn Binding="{Binding Pr}" Header="Белки" Width="1*"/>

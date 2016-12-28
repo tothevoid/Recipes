@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Windows.Input;
 using Microsoft.Win32;
@@ -14,8 +16,8 @@ namespace Catalog_of_recipes
         #region Constructor
         public AddRecipeView()
         {
-            Time = new List<string>() { "Праздничное", "Завтрак", "Обед", "Ужин" };
             Load_ingrs();
+            Time = new List<string>() { "Праздничное", "Завтрак", "Обед", "Ужин" };
             Using_ingrs = new ObservableCollection<Ingredient>() {};
             Summary = "0: 0: 0: 0";
             Weight = "100";
@@ -24,10 +26,9 @@ namespace Catalog_of_recipes
         #endregion
 
         #region Fields
-        private List<string> _search;
         private string _name, _description, _message, _summary, _weight, _selectedTime;
         private int _searchselect;
-        private Uri _image;
+        private Uri _image; 
         #endregion
 
         #region Properties
@@ -39,13 +40,24 @@ namespace Catalog_of_recipes
         public string Name { get { return _name; } set { Set(ref _name, value); } }
         public string Description { get { return _description; } set { Set(ref _description, value); } }
         public List<string> Time { get; set; }
-        public ObservableCollection<Ingredient> Using_ingrs { get; set; }
+        public ObservableCollection<Ingredient> Using_ingrs { get; set;}
         public int SearchSelect { get { return _searchselect; } set { Set(ref _searchselect,value);} }
-        //public List<string> Search { get { return _search; } set {Set(ref _search,value);} }
+       
     
         #endregion
 
         #region Methods
+
+        private void Del(object parameter)
+        {
+            IList list = parameter as IList;
+            List<Ingredient> Selected = list.Cast<Ingredient>().ToList();
+            foreach (var i in Selected)
+            {
+                Using_ingrs.Remove(i);
+            }
+            CountSummary();
+        }
 
         private void Add_recipe(object parameter)
         {
@@ -59,8 +71,8 @@ namespace Catalog_of_recipes
             foreach (var x in Using_ingrs)
                 ingr.Append(x.Name + "/" + x.Weight + "/");
             if (Temp.Count == Recipes.Count || Recipes.Count == 0)
-                Recipes.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
-            Temp.Add(new Recipe(Name, SelectedTime, Description, props[0], props[1], props[2], props[3], Convert.ToString(ingr)));
+                Recipes.Add(new Recipe { Name = Name, Time = SelectedTime, Description = Description, Pr = props[0], Fat = props[1], Ch = props[2], Cl = props[3], Ingredients = Convert.ToString(ingr) });
+            Temp.Add(new Recipe { Name = Name, Time = SelectedTime, Description = Description, Pr = props[0], Fat = props[1], Ch = props[2], Cl = props[3], Ingredients = Convert.ToString(ingr) });
             Message = String.Format("{0} успешно добавлен ",Name);
             if (Image!=null)
             File.Copy(Image.LocalPath, Environment.CurrentDirectory + String.Format(@"\Images\{0}.png",Name));   
@@ -80,11 +92,11 @@ namespace Catalog_of_recipes
             if (SelectedTime == null)
                     msg.Append("Время, ");
             if (Using_ingrs.Count == 0)
-                    msg.Append("Ингредиенты");
+                    msg.Append("Ингредиенты ");
             if (msg.Length == 0)
                     return true;
                 msg.Insert(0, "Необходимо заполнить: ");
-                Message = Convert.ToString(msg);
+                Message = Convert.ToString(msg).Substring(0,msg.Length-1);
                 return false;
         }
 
@@ -92,8 +104,8 @@ namespace Catalog_of_recipes
         {
             
             var temp = Ingredients[SearchSelect];
-            var dif = Convert.ToDouble(Weight) / temp.Weight;
-            var temp2 = new Ingredient(temp.Name, temp.Pr * dif, temp.Ch * dif, temp.Fat * dif, temp.Cl * dif, Convert.ToDouble(Weight));
+            var dif = Math.Round(Convert.ToDouble(Weight) / temp.Weight,1);
+            var temp2 = new Ingredient { Name = temp.Name, Pr = temp.Pr * dif, Ch = temp.Ch * dif, Fat = temp.Fat * dif, Cl = temp.Cl * dif, Weight = Convert.ToDouble(Weight)};
             int index = Check(temp);
             if (index == -1)
                 Using_ingrs.Add(temp2);
@@ -111,6 +123,7 @@ namespace Catalog_of_recipes
             CountSummary();
         }
 
+        
         private int Check(Ingredient temp)
         {
             int index = -1;
@@ -128,6 +141,7 @@ namespace Catalog_of_recipes
             Description = null;
             Image = null;
             SelectedTime= null;
+            Summary = "0: 0: 0: 0";
             Using_ingrs.Clear();
         }
 
@@ -143,7 +157,7 @@ namespace Catalog_of_recipes
 
         private void CountSummary()
         {
-            Item temp = new Item(null,0, 0, 0, 0);
+            Item temp = new Item { Ch = 0, Cl = 0, Fat = 0, Pr = 0 };
             foreach (var i in Using_ingrs)
             {
                 temp.Ch += i.Ch;
@@ -169,6 +183,11 @@ namespace Catalog_of_recipes
         public ICommand AddImage
         {
             get { return new CommandBase(Add_image); }
+        }
+
+        public ICommand Del_ingr
+        {
+            get { return new CommandBase(Del); }
         }
         #endregion
 

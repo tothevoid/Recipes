@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
@@ -38,14 +39,13 @@ namespace Catalog_of_recipes
 
         public static void Load_ingrs()
         {
-
             using (FileStream fs = new FileStream("Ingredients.dat", FileMode.OpenOrCreate))
             {
                 try
                 {
                     var data = (List<Ingredient>)formatter.Deserialize(fs);
                     Ingredients = new ObservableCollection<Ingredient>(data);
-                    Search=new ObservableCollection<string>(Ingredients.Select(x => x.Name).ToList());
+                    Search = new ObservableCollection<string>(Ingredients.Select(x => x.Name).ToList());
                 }
                 catch
                 {
@@ -56,14 +56,16 @@ namespace Catalog_of_recipes
 
         protected static void Load()
         {
+          
+
             using (FileStream fs = new FileStream("Recipes.dat", FileMode.OpenOrCreate))
             {
                 try
                 {
-                    var data = (List<Recipe>) formatter.Deserialize(fs);
+                    var data = (List<Recipe>)formatter.Deserialize(fs);
                     Recipes = new ObservableCollection<Recipe>(data);
                     Temp = data;
-                   
+
                 }
                 catch
                 {
