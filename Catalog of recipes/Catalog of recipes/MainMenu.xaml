@@ -21,6 +21,7 @@
                 <Setter Property="FontFamily" Value="Vernada"/>
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="Background" Value="#424549"/>
+                <Setter Property="FontSize" Value="16"/>
             </Style>
             <Style TargetType="DataGrid">
                 <Setter Property="AutoGenerateColumns" Value="False"/>
@@ -72,7 +73,7 @@
                         <Label Margin="5,0" Content="Ингредиенты: "/>
                         <TextBox  Height="56" Text="{Binding Curr_ingrs}" IsReadOnly="True" Margin="10,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
                         <Label Margin="5,0" Content="Описание: "/>
-                        <TextBox IsReadOnly="False" Text="{Binding Description, Mode=TwoWay}"  Margin="10,0" TextWrapping="Wrap"  VerticalScrollBarVisibility="Visible" Height="152"/>
+                        <TextBox IsReadOnly="True" Text="{Binding Description, Mode=TwoWay}"  Margin="10,0" TextWrapping="Wrap"  VerticalScrollBarVisibility="Visible" Height="152"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -141,7 +142,6 @@
                         <Button Command="{Binding Add_rec}" Content="Добавить рецепт" Width="125"  />
                         <Button Command ="{Binding Del_ingr}" CommandParameter="{Binding ElementName=tb, Path=SelectedItems}" Content="Удалить ингредиент" Width="150"   />
                     </StackPanel>
-                    
                     <TextBlock FontFamily="Verdana" Foreground="White" Text="{Binding Message}" HorizontalAlignment="Left" Grid.Row="3" Grid.ColumnSpan="2" FontSize="20"/>
                 </Grid>
             </TabItem>
@@ -199,7 +199,8 @@
                             <TextBox Text="{Binding ElementName=Ch,Path=Value}"/>
                         </StackPanel>
                         <Label Content="Масса"/>
-                        <TextBox Margin="0,0,338,0" Text="{Binding Weight}" Height="28"/>
+                        <TextBox Margin="0,0,338,0" Text="{Binding Weight}" Height="21"/>
+                        <TextBlock FontFamily="Verdana" Foreground="White" Text="{Binding Message}" HorizontalAlignment="Left"  FontSize="20"/>
                     </StackPanel>
                     <Button Command="{Binding Add_ingr}"  Content="Добавить" Width="106" Grid.Row="1" HorizontalAlignment="Center" Margin="151,0,149,0"/>
                     <Button Command="{Binding Del_ingr}" CommandParameter="{Binding ElementName=table, Path=SelectedItems}" Content="Удалить" Width="106" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"/>

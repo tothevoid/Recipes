@@ -56,8 +56,6 @@ namespace Catalog_of_recipes
 
         protected static void Load()
         {
-          
-
             using (FileStream fs = new FileStream("Recipes.dat", FileMode.OpenOrCreate))
             {
                 try
