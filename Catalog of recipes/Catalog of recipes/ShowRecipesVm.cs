@@ -117,7 +117,7 @@ namespace Catalog_of_recipes
 
         private bool Check(Recipe rec, char fl)
         {
-            if (SearchQuery.Length == 1 && (fl == '>' || fl == '<'))
+            if (SearchQuery.Length == 1 && (fl == '>' || fl == '<')) 
                 return false;
             switch (Index)
             {
@@ -134,9 +134,9 @@ namespace Catalog_of_recipes
             throw new ArgumentException();
         }
 
-        private bool Compare(double entered, char operand)
+        private bool Compare(double entered, char sign)
         {
-            switch (operand)
+            switch (sign)
             {
                 case '>':
                     return entered > _value;
