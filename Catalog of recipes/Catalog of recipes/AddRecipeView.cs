@@ -17,7 +17,7 @@ namespace Catalog_of_recipes
         public AddRecipeView()
         {
             Load_ingrs();
-            Time = new List<string>() { "Праздничное", "Завтрак", "Обед", "Ужин" };
+            Time = new List<string>() { "Завтрак", "Обед", "Ужин" };
             UsingIngrs = new ObservableCollection<Ingredient>() {};
             Summary = "0: 0: 0: 0";
             Weight = "100";

@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Catalog_of_recipes"
         mc:Ignorable="d"
         Title="Recipes" ResizeMode="NoResize" Height="612" Width="825" WindowStartupLocation="CenterScreen" Closed="Close ">
+
     <Grid >
         <Grid.Resources>
             <Style TargetType="Label">

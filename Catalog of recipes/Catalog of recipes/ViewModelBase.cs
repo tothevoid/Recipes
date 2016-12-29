@@ -9,10 +9,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Catalog_of_recipes
 {
-    class ViewModelBase : INotifyPropertyChanged
+   abstract class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private static BinaryFormatter formatter = new BinaryFormatter();
+        private static BinaryFormatter _formatter = new BinaryFormatter();
 
         public static ObservableCollection<string> Search { get; set; } 
         public static ObservableCollection<Ingredient> Ingredients { get; set; } 
@@ -24,7 +24,7 @@ namespace Catalog_of_recipes
         {
             using (FileStream fs = new FileStream("Recipes.dat", FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fs, Temp);
+                _formatter.Serialize(fs, Temp);
             }
         }
 
@@ -33,17 +33,17 @@ namespace Catalog_of_recipes
             using (FileStream fs = new FileStream("Ingredients.dat", FileMode.OpenOrCreate))
             {
                 List<Ingredient> a = Ingredients.ToList();
-                formatter.Serialize(fs, a);
+                _formatter.Serialize(fs, a);
             }
         }
 
-        public static void Load_ingrs()
+        protected static void Load_ingrs()
         {
             using (FileStream fs = new FileStream("Ingredients.dat", FileMode.OpenOrCreate))
             {
                 try
                 {
-                    var data = (List<Ingredient>)formatter.Deserialize(fs);
+                    var data = (List<Ingredient>)_formatter.Deserialize(fs);
                     Ingredients = new ObservableCollection<Ingredient>(data);
                     Search = new ObservableCollection<string>(Ingredients.Select(x => x.Name).ToList());
                 }
@@ -60,7 +60,7 @@ namespace Catalog_of_recipes
             {
                 try
                 {
-                    var data = (List<Recipe>)formatter.Deserialize(fs);
+                    var data = (List<Recipe>)_formatter.Deserialize(fs);
                     Recipes = new ObservableCollection<Recipe>(data);
                     Temp = data;
 

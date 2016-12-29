@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Catalog_of_recipes.AddRecipeView">
-    <Position X="1.25" Y="0.5" Width="1.5" />
+    <Position X="5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAKDIAgAAAAgBACEAAAAAARAAKAAwBAAkggAICACAUA=</HashCode>
+      <HashCode>AAKDIAiAAAAgBACEAAAAAARAAKAAwBAAEQgAICACAUA=</HashCode>
       <FileName>AddRecipeView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Catalog_of_recipes.CommandBase">
-    <Position X="11.75" Y="0.5" Width="1.5" />
+    <Position X="10.5" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAAACAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CommandBase.cs</FileName>
@@ -16,47 +16,55 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Catalog_of_recipes.Ingredient">
-    <Position X="10.5" Y="4.25" Width="1.5" />
+    <Position X="15.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Catalog_of_recipes.Item">
-    <Position X="9" Y="0.5" Width="1.5" />
+    <Position X="14.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAAAAAAAAAAAAAQAAAAAAAAAgCEAAAAAAAA=</HashCode>
+      <HashCode>CAAAIAAAgAAAAAAAAAAAAAQAAAAAAAAAiCEAAAABAAA=</HashCode>
       <FileName>Model.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Catalog_of_recipes.Recipe">
-    <Position X="8.5" Y="4.25" Width="1.5" />
+    <Position X="12.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAAAAAAAAAAgAAAEAAAAACAAAAAAAAAAAAAAAAAAAQQ=</HashCode>
       <FileName>Model.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Catalog_of_recipes.ManageIngredienstVm" Collapsed="true">
-    <Position X="5.5" Y="2.5" Width="1.5" />
+  <Class Name="Catalog_of_recipes.ManageIngredienstVm">
+    <Position X="10.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAIBIAAAgAAAAAAAAAAABAQAAGAAAAAAiQEAAAABAAA=</HashCode>
+      <HashCode>CAIBIAAAgAAAAAAAAAAABAQAAGAIAAAAmQEAIAABAAA=</HashCode>
       <FileName>ManageIngredienstVm.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Catalog_of_recipes.ViewModelBase" Collapsed="true">
-    <Position X="5.5" Y="0.5" Width="1.5" />
+  <Class Name="Catalog_of_recipes.ViewModelBase">
+    <Position X="7.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgIEAAAAABAAAAAAAICAAgAQAAAAAAAAAgAAgAAA=</HashCode>
+      <HashCode>AAAAgIAAAAAABAAAAAAAICAAgAQAAAAAAAAAgAAgAQA=</HashCode>
       <FileName>ViewModelBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Catalog_of_recipes.ShowRecipesVm">
-    <Position X="3.5" Y="1.75" Width="1.5" />
+    <Position X="7.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ANAAAAAAAAAgCQAEAAIgBAgAAAAAEAAAiIEEAADwAAA=</HashCode>
+      <HashCode>ANAAAAAAAAAgCQAEAAIhBAgAAAAQEEAAgAFAAADwAAA=</HashCode>
       <FileName>ShowRecipesVm.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="Catalog_of_recipes.MainMenu">
+    <Position X="2.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>MainMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

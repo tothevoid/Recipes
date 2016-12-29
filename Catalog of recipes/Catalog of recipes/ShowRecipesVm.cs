@@ -123,27 +123,27 @@ namespace Catalog_of_recipes
             {
                 case 0: return rec.Name.ToLower().Contains(SearchQuery.ToLower());
                 case 1:
-                    return Compare(rec.Cl, _value, fl);
+                    return Compare(rec.Cl, fl);
                 case 2:
-                    return Compare(rec.Pr, _value, fl);
+                    return Compare(rec.Pr, fl);
                 case 3:
-                    return Compare(rec.Fat, _value, fl);
+                    return Compare(rec.Fat, fl);
                 case 4:
-                    return Compare(rec.Ch, _value, fl);
+                    return Compare(rec.Ch, fl);
             }
             throw new ArgumentException();
         }
 
-        private bool Compare(double entered, double exist, char operand)
+        private bool Compare(double entered, char operand)
         {
             switch (operand)
             {
                 case '>':
-                    return entered > exist;
+                    return entered > _value;
                 case '<':
-                    return entered < exist;
+                    return entered < _value;
                 default:
-                    return Math.Abs(exist - entered) < 1;
+                    return Math.Abs(_value - entered) < 1;
             }
         }
 
@@ -151,15 +151,12 @@ namespace Catalog_of_recipes
         {
             if (Recipes == null)
                 return;
-            double res = 0;
             bool isNum;
             char fl = SearchQuery.First();
             if (fl == '>' || fl == '<')
-                isNum = double.TryParse(SearchQuery.Replace(".", ",").Substring(1), out res);
+                isNum = double.TryParse(SearchQuery.Replace(".", ",").Substring(1), out _value);
             else
-                isNum = double.TryParse(SearchQuery.Replace(".", ","), out res);
-            if (isNum)
-                _value = res;
+                isNum = double.TryParse(SearchQuery.Replace(".", ","), out _value);
             Recipes.Clear();
             var temp = Temp.Where(x => MyComparer(x,fl));
             foreach (var i in temp)
