@@ -115,7 +115,7 @@ namespace Catalog_of_recipes
           
         }
 
-        private bool MyComparer(Recipe rec, char fl)
+        private bool Check(Recipe rec, char fl)
         {
             if (SearchQuery.Length == 1 && (fl == '>' || fl == '<'))
                 return false;
@@ -158,7 +158,7 @@ namespace Catalog_of_recipes
             else
                 isNum = double.TryParse(SearchQuery.Replace(".", ","), out _value);
             Recipes.Clear();
-            var temp = Temp.Where(x => MyComparer(x,fl));
+            var temp = Temp.Where(x => Check(x,fl));
             foreach (var i in temp)
             {
                 Recipes.Add(i);
