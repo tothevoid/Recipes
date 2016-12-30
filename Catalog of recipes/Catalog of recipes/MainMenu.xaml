@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:Catalog_of_recipes"
         mc:Ignorable="d"
         Title="Recipes"  ResizeMode="NoResize" Height="612" Width="825" WindowStartupLocation="CenterScreen" Closed="Close ">
-  
-        <Grid >
+    <Grid >
         <Grid.Resources>
             <Style TargetType="Label">
                 <Setter Property="FontFamily" Value="Vernada"/>
@@ -80,7 +79,7 @@
             </TabItem>
             <TabItem Header="Добавление рецепта"  >
                 <TabItem.DataContext>
-                    <local:AddRecipeView/>
+                    <local:AddRecipesVm/>
                 </TabItem.DataContext>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -148,7 +147,7 @@
             </TabItem>
             <TabItem Header="Добавление ингредиента" >
                 <TabItem.DataContext>
-                    <local:ManageIngredienstVm/>
+                    <local:ManageIngredientsVm/>
                 </TabItem.DataContext>
                 <Grid>
                     <Grid.Resources>
@@ -180,31 +179,31 @@
                             <DataGridTextColumn Binding="{Binding Weight}" Header="Масса" Width="1*"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <StackPanel>
+                    <StackPanel Margin="10,0">
                         <Label Content="Название"/>
                         <TextBox Margin="0,0,35,0" Height="25" Text="{Binding Name}"/>
-                        <Label Content="Данные"/>
+                        <Label Content="Данные:"/>
                         <Label Content="Белки"/>
                         <StackPanel Orientation="Horizontal">
-                            <Slider x:Name="Pr" Value="{Binding Pr}"/>
+                            <Slider x:Name="Pr" Value="{Binding Pr}" Width="334"/>
                             <TextBox Text="{Binding ElementName=Pr,Path=Value}"/>
                         </StackPanel>
                         <Label Content="Жиры"/>
                         <StackPanel Orientation="Horizontal">
-                            <Slider x:Name="Fat" Value="{Binding Fat}"/>
+                            <Slider x:Name="Fat" Value="{Binding Fat}" Width="333"/>
                             <TextBox Text="{Binding ElementName=Fat,Path=Value}"/>
                         </StackPanel>
                         <Label Content="Углеводы"/>
                         <StackPanel Orientation="Horizontal">
-                            <Slider x:Name="Ch" Value="{Binding Ch}"/>
+                            <Slider x:Name="Ch" Value="{Binding Ch}" Width="334"/>
                             <TextBox Text="{Binding ElementName=Ch,Path=Value}"/>
                         </StackPanel>
                         <Label Content="Масса"/>
                         <TextBox Margin="0,0,338,0" Text="{Binding Weight}" Height="21"/>
                         <TextBlock FontFamily="Verdana" Foreground="White" Text="{Binding Message}" HorizontalAlignment="Left"  FontSize="20"/>
                     </StackPanel>
-                    <Button Command="{Binding Add_ingr}"  Content="Добавить" Width="106" Grid.Row="1" HorizontalAlignment="Center" Margin="151,0,149,0"/>
-                    <Button Command="{Binding Del_ingr}" CommandParameter="{Binding ElementName=table, Path=SelectedItems}" Content="Удалить" Width="106" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"/>
+                    <Button Command="{Binding AddIngr}"  Content="Добавить" Width="106" Grid.Row="1" HorizontalAlignment="Center" Margin="151,0,149,0"/>
+                    <Button Command="{Binding DelIngr}" CommandParameter="{Binding ElementName=table, Path=SelectedItems}" Content="Удалить" Width="106" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"/>
                 </Grid>
             </TabItem>
         </TabControl>

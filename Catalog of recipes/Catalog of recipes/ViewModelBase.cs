@@ -73,6 +73,20 @@ namespace Catalog_of_recipes
             }
         }
 
+        protected bool WeigtCheck(string Weight)
+        {
+            double res = -1;
+            if (string.IsNullOrWhiteSpace(Weight))
+            {
+                return false;
+            }
+            if (double.TryParse(Weight, out res) == false || res < 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
         protected void Set<T>(ref T field, T value, [CallerMemberName] string propName = null)
         {
             if (field != null && !field.Equals(value) || value != null && !value.Equals(field))

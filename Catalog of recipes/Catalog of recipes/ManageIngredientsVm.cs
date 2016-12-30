@@ -9,9 +9,9 @@ using System.Windows.Media.Animation;
 
 namespace Catalog_of_recipes
 {
-    class ManageIngredienstVm:ViewModelBase
+    class ManageIngredientsVm:ViewModelBase
     {
-        public ManageIngredienstVm()
+        public ManageIngredientsVm()
         {
             Weight = "100";
         }
@@ -26,11 +26,26 @@ namespace Catalog_of_recipes
         public string Pr { get { return _pr; } set { Set(ref _pr, value.Replace('.', ','));} }
         public string Fat { get { return _fat; } set { Set(ref _fat, value.Replace('.', ',')); } }
         public string Ch { get { return _ch; } set { Set(ref _ch, value.Replace('.', ',')); } }
-        public string Message { get { return _ch; } set { Set(ref _ch, value.Replace('.', ',')); } }
+        public string Message { get { return _message; } set { Set(ref _message, value.Replace('.', ',')); } }
         public string Weight { get { return _weight; } set { Set(ref _weight, value); } }
 
         private void Add(object parameter)
         {
+            if (string.IsNullOrWhiteSpace(Pr) || string.IsNullOrWhiteSpace(Fat) || string.IsNullOrWhiteSpace(Ch))
+            {
+                Message = "Все параметры равны 0";
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(Name))
+            {
+                Message = "Отсутствует имя";
+                    return;
+            }
+            if (WeigtCheck(Weight) == false)
+            {
+                Message = "Масса введена неправильно";
+                return;
+            }
             if (Validty())
             {
                 Message = "Такой ингредиент уже существует";
@@ -67,12 +82,12 @@ namespace Catalog_of_recipes
             }
         }
 
-        public ICommand Del_ingr
+        public ICommand DelIngr
         {
             get { return new CommandBase(Remove); }
         }
 
-        public ICommand Add_ingr
+        public ICommand AddIngr
         {
             get { return new CommandBase(Add); }
         }

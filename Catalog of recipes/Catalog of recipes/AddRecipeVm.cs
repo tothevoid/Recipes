@@ -11,12 +11,11 @@ using Microsoft.Win32;
 
 namespace Catalog_of_recipes
 {
-    internal class AddRecipeView:ViewModelBase
+    internal class AddRecipesVm:ViewModelBase
     {
         #region Constructor
-        public AddRecipeView()
+        public AddRecipesVm()
         {
-            Load_ingrs();
             Time = new List<string>() { "Завтрак", "Обед", "Ужин" };
             UsingIngrs = new ObservableCollection<Ingredient>() {};
             Summary = "0: 0: 0: 0";
@@ -59,7 +58,7 @@ namespace Catalog_of_recipes
             CountSummary();
         }
 
-        private void Add_recipe(object parameter)
+        private void AddRecipe(object parameter)
         {
             bool isReady = FieldsCheck();
             if (isReady==false)
@@ -100,9 +99,14 @@ namespace Catalog_of_recipes
                 return false;
         }
 
-        private void Add(object parameter)
+     
+        private void AddIngr(object parameter)
         {
-            
+            if (WeigtCheck(Weight) == false)
+            {
+                Message = "Масса введена неправильно";
+                return;
+            }
             var cur = Ingredients[SearchSelect];
             var dif = Math.Round(Convert.ToDouble(Weight) / cur.Weight,1);
             var newIngr = new Ingredient { Name = cur.Name, Pr = cur.Pr * dif, Ch = cur.Ch * dif, Fat = cur.Fat * dif, Cl = cur.Cl * dif, Weight = Convert.ToDouble(Weight)};
@@ -149,7 +153,7 @@ namespace Catalog_of_recipes
         {
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.FileName = "Image";
-            dlg.Filter = "Image (.png)|*.png";
+            dlg.Filter = "Image files(*.jpg, *.jpeg, *.jpe, *.png) | *.jpg; *.jpeg; *.jpe; *.png";
             Nullable<bool> result = dlg.ShowDialog();
             if (result == true)
                 Image = new Uri(dlg.FileName);
@@ -172,12 +176,12 @@ namespace Catalog_of_recipes
         #region Command
         public ICommand Add_Ingr
         {
-            get { return new CommandBase(Add); }
+            get { return new CommandBase(AddIngr); }
         }
 
         public ICommand Add_rec
         {
-            get { return new CommandBase(Add_recipe); }
+            get { return new CommandBase(AddRecipe); }
         }
 
         public ICommand AddImage

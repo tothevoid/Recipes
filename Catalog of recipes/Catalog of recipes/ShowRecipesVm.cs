@@ -46,7 +46,7 @@ namespace Catalog_of_recipes
             {
                 Set(ref _index, value);
                 if (string.IsNullOrEmpty(SearchQuery)==false)
-                Search(); 
+                StartSearch(); 
             }
         }
 
@@ -68,7 +68,7 @@ namespace Catalog_of_recipes
             {
                 Set(ref _searchQuery, value);
                 if (string.IsNullOrWhiteSpace(SearchQuery)==false)
-                    Search();
+                    StartSearch();
                 else
                 {
                    Recipes.Clear();
@@ -147,7 +147,7 @@ namespace Catalog_of_recipes
             }
         }
 
-        private void Search()
+        private void StartSearch()
         {
             if (Recipes == null)
                 return;
@@ -172,7 +172,7 @@ namespace Catalog_of_recipes
             Description = null;
             CurrIngrs = null;
             CurrImg = null;
-            Recipes.Clear();
+            
             foreach (var i in Selected)
             {
                 File.Delete(Environment.CurrentDirectory + String.Format(@"\Images\{0}.png", i.Name));
@@ -192,6 +192,7 @@ namespace Catalog_of_recipes
                 Recipes.Add(i);
             }
         }
+
         #endregion
 
         #region Command
@@ -205,6 +206,7 @@ namespace Catalog_of_recipes
         {
             get { return new CommandBase(Clear); }
         }
+
         #endregion
 
     }
