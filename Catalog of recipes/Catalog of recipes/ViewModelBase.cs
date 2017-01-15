@@ -13,12 +13,10 @@ namespace Catalog_of_recipes
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private static BinaryFormatter _formatter = new BinaryFormatter();
-
         public static ObservableCollection<string> Search { get; set; } 
         public static ObservableCollection<Ingredient> Ingredients { get; set; } 
         public static ObservableCollection<Recipe> Recipes { get; set; }
         protected static List<Recipe> Temp { get; set; }
-
 
         public static void Save()
         {

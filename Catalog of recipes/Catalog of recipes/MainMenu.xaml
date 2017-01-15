@@ -71,9 +71,9 @@
                     <Image Margin="10,0" Source="{Binding CurrImg}"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="1"/>
                     <StackPanel Grid.Row="3"  Grid.RowSpan="2" Grid.Column="1">
                         <Label Margin="5,0" Content="Ингредиенты: "/>
-                        <TextBox  Height="56" Text="{Binding CurrIngrs}" IsReadOnly="True" Margin="10,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
+                        <TextBox  Height="60" Text="{Binding CurrIngrs}" IsReadOnly="True" Margin="10,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
                         <Label Margin="5,0" Content="Описание: "/>
-                        <TextBox IsReadOnly="True" Text="{Binding Description, Mode=TwoWay}"  Margin="10,0" TextWrapping="Wrap"  VerticalScrollBarVisibility="Visible" Height="152"/>
+                        <TextBox IsReadOnly="True" Text="{Binding Description, Mode=TwoWay}"  Margin="10,0" TextWrapping="Wrap"  VerticalScrollBarVisibility="Visible" Height="147"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -153,7 +153,7 @@
                     <Grid.Resources>
                         <Style TargetType="Slider">
                             <Setter Property="Minimum" Value="0"/>
-                            <Setter Property="Maximum" Value="1000"/>
+                            <Setter Property="Maximum" Value="100"/>
                             <Setter Property="AutoToolTipPlacement" Value="BottomRight"/>
                             <Setter Property="IsSnapToTickEnabled" Value="True"/>
                             <Setter Property="TickFrequency" Value="0.1"/>
@@ -176,11 +176,10 @@
                             <DataGridTextColumn Binding="{Binding Fat}" Header="Жиры" Width="1*"/>
                             <DataGridTextColumn Binding="{Binding Ch}" Header="Угл." Width="1*"/>
                             <DataGridTextColumn Binding="{Binding Cl}" Header="Кал." Width="1*"/>
-                            <DataGridTextColumn Binding="{Binding Weight}" Header="Масса" Width="1*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <StackPanel Margin="10,0">
-                        <Label Content="Название"/>
+                        <Label Content="Название: "/>
                         <TextBox Margin="0,0,35,0" Height="25" Text="{Binding Name}"/>
                         <Label Content="Данные:"/>
                         <Label Content="Белки"/>
@@ -198,8 +197,6 @@
                             <Slider x:Name="Ch" Value="{Binding Ch}" Width="334"/>
                             <TextBox Text="{Binding ElementName=Ch,Path=Value}"/>
                         </StackPanel>
-                        <Label Content="Масса"/>
-                        <TextBox Margin="0,0,338,0" Text="{Binding Weight}" Height="21"/>
                         <TextBlock FontFamily="Verdana" Foreground="White" Text="{Binding Message}" HorizontalAlignment="Left"  FontSize="20"/>
                     </StackPanel>
                     <Button Command="{Binding AddIngr}"  Content="Добавить" Width="106" Grid.Row="1" HorizontalAlignment="Center" Margin="151,0,149,0"/>

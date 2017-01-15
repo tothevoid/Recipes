@@ -15,12 +15,13 @@ using System.Windows.Media.Imaging;
 
 namespace Catalog_of_recipes
 {
-    internal class ShowRecipesVm:ViewModelBase
+    class ShowRecipesVm:ViewModelBase
     {
         #region Constructor
         public ShowRecipesVm()
         {
             Load();
+            Load_ingrs();
         }
         #endregion
 

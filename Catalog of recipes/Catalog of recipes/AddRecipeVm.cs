@@ -11,7 +11,7 @@ using Microsoft.Win32;
 
 namespace Catalog_of_recipes
 {
-    internal class AddRecipesVm:ViewModelBase
+    class AddRecipesVm:ViewModelBase
     {
         #region Constructor
         public AddRecipesVm()
@@ -20,7 +20,6 @@ namespace Catalog_of_recipes
             UsingIngrs = new ObservableCollection<Ingredient>() {};
             Summary = "0: 0: 0: 0";
             Weight = "100";
-            
         }
         #endregion
 

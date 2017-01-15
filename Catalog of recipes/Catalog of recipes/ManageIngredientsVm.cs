@@ -11,14 +11,9 @@ namespace Catalog_of_recipes
 {
     class ManageIngredientsVm:ViewModelBase
     {
-        public ManageIngredientsVm()
-        {
-            Weight = "100";
-        }
         string _pr;
         string _fat;
-        string _ch;
-        string _weight;
+        string _ch;   
         string _name;
         string _message;
 
@@ -27,7 +22,6 @@ namespace Catalog_of_recipes
         public string Fat { get { return _fat; } set { Set(ref _fat, value.Replace('.', ',')); } }
         public string Ch { get { return _ch; } set { Set(ref _ch, value.Replace('.', ',')); } }
         public string Message { get { return _message; } set { Set(ref _message, value.Replace('.', ',')); } }
-        public string Weight { get { return _weight; } set { Set(ref _weight, value); } }
 
         private void Add(object parameter)
         {
@@ -41,18 +35,13 @@ namespace Catalog_of_recipes
                 Message = "Отсутствует имя";
                     return;
             }
-            if (WeigtCheck(Weight) == false)
-            {
-                Message = "Масса введена неправильно";
-                return;
-            }
             if (Validty())
             {
                 Message = "Такой ингредиент уже существует";
                 return;
             }
             double cl = Math.Round(Convert.ToDouble(Pr)*4+Convert.ToDouble(Ch) *4+Convert.ToDouble(Fat) *9,2);
-            var newIngr = new Ingredient { Name = Name, Pr = Convert.ToDouble(Pr), Ch = Convert.ToDouble(Ch), Fat = Convert.ToDouble(Fat), Cl = cl, Weight = Convert.ToDouble(Weight) };
+            var newIngr = new Ingredient { Name = Name, Pr = Convert.ToDouble(Pr), Ch = Convert.ToDouble(Ch), Fat = Convert.ToDouble(Fat), Cl = cl, Weight = 100};
             Ingredients.Add(newIngr);
             Message = string.Format("Ингредиент {0} добавлен", Name);
             Search.Add(Name);
