@@ -174,8 +174,8 @@
                             <DataGridTextColumn Binding="{Binding Name}" Header="Название" Width="2*"/>
                             <DataGridTextColumn Binding="{Binding Pr}" Header="Белки" Width="1*"/>
                             <DataGridTextColumn Binding="{Binding Fat}" Header="Жиры" Width="1*"/>
-                            <DataGridTextColumn Binding="{Binding Ch}" Header="Угл." Width="1*"/>
-                            <DataGridTextColumn Binding="{Binding Cl}" Header="Кал." Width="1*"/>
+                            <DataGridTextColumn Binding="{Binding Ch}" Header="Углеводы" Width="1*"/>
+                            <DataGridTextColumn Binding="{Binding Cl}" Header="Калории" Width="1*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <StackPanel Margin="10,0">

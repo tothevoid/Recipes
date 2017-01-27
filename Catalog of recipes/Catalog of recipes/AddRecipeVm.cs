@@ -98,7 +98,20 @@ namespace Catalog_of_recipes
                 return false;
         }
 
-     
+        protected bool WeigtCheck(string Weight)
+        {
+            double res = -1;
+            if (string.IsNullOrWhiteSpace(Weight))
+            {
+                return false;
+            }
+            if (double.TryParse(Weight, out res) == false || res < 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
         private void AddIngr(object parameter)
         {
             if (WeigtCheck(Weight) == false)

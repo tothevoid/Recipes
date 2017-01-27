@@ -24,6 +24,8 @@ namespace Catalog_of_recipes
             {
                 _formatter.Serialize(fs, Temp);
             }
+
+    
         }
 
         public static void Save_ingrs()
@@ -69,20 +71,6 @@ namespace Catalog_of_recipes
                     Temp = new List<Recipe>();
                 }
             }
-        }
-
-        protected bool WeigtCheck(string Weight)
-        {
-            double res = -1;
-            if (string.IsNullOrWhiteSpace(Weight))
-            {
-                return false;
-            }
-            if (double.TryParse(Weight, out res) == false || res < 0)
-            {
-                return false;
-            }
-            return true;
         }
 
         protected void Set<T>(ref T field, T value, [CallerMemberName] string propName = null)

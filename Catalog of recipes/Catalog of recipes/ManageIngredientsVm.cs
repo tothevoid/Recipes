@@ -43,7 +43,7 @@ namespace Catalog_of_recipes
             double cl = Math.Round(Convert.ToDouble(Pr)*4+Convert.ToDouble(Ch) *4+Convert.ToDouble(Fat) *9,2);
             var newIngr = new Ingredient { Name = Name, Pr = Convert.ToDouble(Pr), Ch = Convert.ToDouble(Ch), Fat = Convert.ToDouble(Fat), Cl = cl, Weight = 100};
             Ingredients.Add(newIngr);
-            Message = string.Format("Ингредиент {0} добавлен", Name);
+            Message = string.Format("Ингредиент «{0}» добавлен", Name);
             Search.Add(Name);
         }
 
